@@ -577,12 +577,7 @@
         const audioCache = new Map();
 
         function getAudioUrl(text, lang) {
-            const isLocalServer = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-            if (isLocalServer) {
-                return `/tts?q=${encodeURIComponent(text)}&tl=${lang}`;
-            } else {
-                return `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(text)}&tl=${lang}&client=gtx`;
-            }
+            return `/tts?q=${encodeURIComponent(text)}&tl=${lang}`;
         }
 
         function preloadAudio(text, lang) {
