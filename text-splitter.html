@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Splitter Premium - Phân tách văn bản thông minh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;700&family=Be+Vietnam+Pro:wght@400;700&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --accent: #06b6d4;
+            --bg: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --border: rgba(255, 255, 255, 0.1);
+            --text: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.15) 0%, transparent 40%);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        p.subtitle {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+        }
+
+        .glass-panel {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        label {
+            font-weight: 600;
+            color: var(--text-dim);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        textarea {
+            width: 100%;
+            height: 300px;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            color: var(--text);
+            font-size: 1rem;
+            line-height: 1.6;
+            resize: vertical;
+            transition: all 0.3s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .select-input {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        .limit-input {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            color: var(--text);
+            width: 100px;
+        }
+
+        button {
+            padding: 0.8rem 2rem;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .results-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .chunk-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            animation: fadeInUp 0.5s ease-out backwards;
+            transition: all 0.3s ease;
+        }
+
+        .chunk-card.active-playing {
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+            transform: scale(1.02);
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .chunk-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.8rem;
+        }
+
+        .chunk-title {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .chunk-meta {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        .chunk-content {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            white-space: pre-wrap;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            max-height: 300px;
+            overflow-y: auto;
+            color: #cbd5e1;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            line-height: 1.8;
+        }
+
+        .sentence {
+            transition: all 0.2s ease;
+            padding: 2px 4px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .sentence:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .sentence.active-sentence {
+            background: rgba(6, 182, 212, 0.3);
+            color: #fff;
+            font-weight: 600;
+            text-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .glass-panel {
+                padding: 1.2rem;
+            }
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .limit-input {
+                width: 100%;
+            }
+            button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        .copy-success {
+            color: #10b981;
+            font-size: 0.85rem;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .copy-success.show {
+            opacity: 1;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 4rem;
+            color: var(--text-dim);
+            border: 2px dashed var(--border);
+            border-radius: 24px;
+        }
+
+        .stats-badge {
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--primary);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Text Splitter Premium</h1>
+            <p class="subtitle">Phân tách văn bản dài thành các đoạn nhỏ dễ quản lý</p>
+        </header>
+
+        <div class="glass-panel">
+            <div class="input-group">
+                <label for="mainInput">
+                    <span>Nhập văn bản của bạn</span>
+                    <span id="charCount" class="stats-badge">0 ký tự</span>
+                </label>
+                <textarea id="mainInput" placeholder="Dán văn bản cần xử lý vào đây..."></textarea>
+            </div>
+
+            <div class="controls">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span style="color: var(--text-dim); font-size: 0.9rem;">Giới hạn:</span>
+                    <input type="number" id="limitInput" class="limit-input" value="5000" min="100">
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span style="color: var(--text-dim); font-size: 0.9rem;">Ngôn ngữ:</span>
+                    <select id="langSelect" class="select-input">
+                        <option value="vi" selected>Tiếng Việt</option>
+                        <option value="en">Tiếng Anh</option>
+                        <option value="ja">Tiếng Nhật</option>
+                        <option value="ko">Tiếng Hàn</option>
+                        <option value="zh">Tiếng Trung</option>
+                        <option value="fr">Tiếng Pháp</option>
+                    </select>
+                </div>
+
+
+                <div style="display: flex; align-items: center; gap: 1rem; padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid var(--border);">
+                    <span style="color: var(--text-dim); font-size: 0.9rem; white-space: nowrap;">Tốc độ: <span id="speedVal">1.0</span>x</span>
+                    <input type="range" id="speedRate" min="0.5" max="2.5" step="0.1" value="1.0" style="width: 80px; cursor: pointer;">
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span style="color: var(--text-dim); font-size: 0.9rem;">Font:</span>
+                    <select id="fontSelect" class="select-input" onchange="updateFont()">
+                        <option value="'Inter', sans-serif">Inter</option>
+                        <option value="'Outfit', sans-serif">Outfit</option>
+                        <option value="'Be Vietnam Pro', sans-serif">Be Vietnam Pro</option>
+                        <option value="'Merriweather', serif">Merriweather (Dễ đọc)</option>
+                        <option value="'Lora', serif">Lora (Sách)</option>
+                    </select>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;" title="Tự động phát sau khi bấm Phân tách ngay">
+                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--text-dim); font-size: 0.9rem;">
+                        <input type="checkbox" id="autoPlayCheck" style="width: 16px; height: 16px;">
+                        Tự động phát
+                    </label>
+                </div>
+                
+                <button class="btn-primary" onclick="splitText()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 2v8h-8"/><path d="M20 10c0 5.523-4.477 10-10 10S0 15.523 0 10 4.477 0 10 0a9.9 9.9 0 0 1 7.071 2.929L20 10z"/></svg>
+                    Phân tách ngay
+                </button>
+
+                <button id="playAllBtn" class="btn-secondary" onclick="playAllChunks()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Đọc tất cả
+                </button>
+
+                <button id="playFromCursorBtn" class="btn-secondary" onclick="playFromCursor()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7-7-7M5 19l7-7-7-7"/></svg>
+                    Tiếp tục đọc
+                </button>
+
+
+                <button class="btn-secondary" onclick="clearAll()">
+                    Xóa tất cả
+                </button>
+            </div>
+        </div>
+
+        <div id="results" class="results-container">
+            <div class="empty-state">
+                Kết quả sẽ hiển thị tại đây sau khi bạn phân tách
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const mainInput = document.getElementById('mainInput');
+        const charCountDisplay = document.getElementById('charCount');
+        const resultsContainer = document.getElementById('results');
+        const limitInput = document.getElementById('limitInput');
+
+        mainInput.addEventListener('input', () => {
+            charCountDisplay.textContent = `${mainInput.value.length.toLocaleString()} ký tự`;
+        });
+
+        document.getElementById('speedRate').addEventListener('input', (e) => {
+            document.getElementById('speedVal').textContent = parseFloat(e.target.value).toFixed(1);
+            if (currentAudio) {
+                currentAudio.playbackRate = parseFloat(e.target.value);
+            }
+        });
+
+
+        function splitText() {
+            let text = mainInput.value.trim();
+            // Loại bỏ các khoảng trắng thừa giữa các từ (ví dụ 2 khoảng trắng thành 1)
+            text = text.replace(/ +/g, ' ');
+            
+            // Cập nhật lại giá trị cho textarea để index của con trỏ chuột (selectionStart) 
+            // khớp tuyệt đối với độ dài và vị trí của văn bản đã chuẩn hóa.
+            if (mainInput.value !== text) {
+                mainInput.value = text;
+            }
+
+            lastSplitText = text;
+
+            const limit = parseInt(limitInput.value) || 5000;
+
+            if (!text) {
+                alert('Vui lòng nhập văn bản!');
+                return;
+            }
+
+            resultsContainer.innerHTML = '';
+            stopAllAudio();
+            
+            const chunks = [];
+            let currentChunkOffset = 0;
+            let remaining = text;
+            
+            while (remaining.length > 0) {
+                let takeLen = remaining.length;
+                if (takeLen > limit) {
+                    let splitAt = -1;
+                    const breakPoints = ['\n\n', '\n', '. ', '! ', '? '];
+                    for (const char of breakPoints) {
+                        const pos = remaining.lastIndexOf(char, limit);
+                        if (pos > limit / 2 && pos > splitAt) {
+                            splitAt = pos + char.length;
+                            break; // Ưu tiên break point lớn nhất (xuống dòng)
+                        }
+                    }
+                    if (splitAt === -1) {
+                        splitAt = remaining.lastIndexOf(' ', limit);
+                        if (splitAt !== -1) splitAt += 1;
+                    }
+                    if (splitAt <= 0) splitAt = limit;
+                    takeLen = splitAt;
+                }
+                
+                const chunkText = remaining.substring(0, takeLen);
+                chunks.push({ text: chunkText, start: currentChunkOffset });
+                currentChunkOffset += chunkText.length;
+                remaining = remaining.substring(takeLen);
+            }
+
+            chunks.forEach((chunkObj, index) => {
+                const chunk = chunkObj.text;
+                const offset = chunkObj.start;
+                const card = document.createElement('div');
+                card.className = 'chunk-card';
+                card.id = `card-${index}`;
+                card.style.animationDelay = `${index * 0.1}s`;
+
+                card.innerHTML = `
+                    <div class="chunk-header">
+                        <div>
+                            <span class="chunk-title">Đoạn ${index + 1}</span>
+                            <span class="chunk-meta ml-2">| ${chunk.length.toLocaleString()} ký tự</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span class="copy-success" id="success-${index}">Đã sao chép!</span>
+                            <button class="btn-secondary tts-btn" id="tts-btn-${index}" style="padding: 0.4rem 1rem; font-size: 0.8rem;" onclick="togglePlayChunk(${index})">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                                Nghe đọc
+                            </button>
+                            <button class="btn-secondary" style="padding: 0.4rem 1rem; font-size: 0.8rem;" onclick="copyChunk(${index})">
+                                Sao chép
+                            </button>
+                        </div>
+                    </div>
+                    <div class="chunk-content" id="chunk-${index}">${formatTextDisplay(chunk, index, offset)}</div>
+                `;
+                resultsContainer.appendChild(card);
+            });
+
+            // Hiển thị kết quả
+            if (chunks.length > 0) {
+                document.getElementById('playFromCursorBtn').style.display = 'flex';
+                document.getElementById('playAllBtn').style.display = 'flex';
+            }
+            
+            // Lưu trạng thái vào localStorage
+            saveState();
+
+            if (document.getElementById('autoPlayCheck').checked) {
+                setTimeout(() => playAllChunks(), 500);
+            }
+        }
+
+        // --- HỆ THỐNG LƯU TRỮ ---
+        function saveState() {
+            const state = {
+                text: mainInput.value,
+                limit: limitInput.value,
+                lang: document.getElementById('langSelect').value,
+                autoPlay: document.getElementById('autoPlayCheck').checked,
+                font: document.getElementById('fontSelect').value,
+                speed: document.getElementById('speedRate').value
+            };
+            localStorage.setItem('textSplitterState', JSON.stringify(state));
+        }
+
+        function loadState() {
+            const saved = localStorage.getItem('textSplitterState');
+            if (saved) {
+                const state = JSON.parse(saved);
+                mainInput.value = state.text || '';
+                limitInput.value = state.limit || 5000;
+                document.getElementById('langSelect').value = state.lang || 'vi';
+                document.getElementById('autoPlayCheck').checked = state.autoPlay || false;
+                document.getElementById('fontSelect').value = state.font || "'Inter', sans-serif";
+                document.getElementById('speedRate').value = state.speed || 1.0;
+                document.getElementById('speedVal').textContent = parseFloat(state.speed || 1.0).toFixed(1);
+                
+                updateFont();
+                
+                if (state.text) {
+                    mainInput.dispatchEvent(new Event('input'));
+                    splitText();
+                }
+            }
+        }
+
+        // Lắng nghe thay đổi để lưu
+        [mainInput, limitInput, document.getElementById('langSelect'), document.getElementById('autoPlayCheck'), document.getElementById('fontSelect'), document.getElementById('speedRate')].forEach(el => {
+            el.addEventListener('change', saveState);
+        });
+        mainInput.addEventListener('input', () => {
+            charCountDisplay.textContent = `${mainInput.value.length.toLocaleString()} ký tự`;
+            // Không lưu liên tục mỗi phím nhấn để tránh lag, chỉ lưu khi dừng gõ hoặc split
+        });
+
+        window.addEventListener('DOMContentLoaded', loadState);
+
+        let currentAudio = null;
+        let activeChunkIndex = -1;
+        let isGlobalPlaying = false;
+        let lastSplitText = "";
+
+        const audioCache = new Map();
+
+        function getAudioUrl(text, lang) {
+            const isLocalServer = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+            if (isLocalServer) {
+                return `/tts?q=${encodeURIComponent(text)}&tl=${lang}`;
+            } else {
+                return `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(text)}&tl=${lang}&client=gtx`;
+            }
+        }
+
+        function preloadAudio(text, lang) {
+            if (!text.trim()) return null;
+            const cacheKey = lang + '_' + text;
+            if (audioCache.has(cacheKey)) return audioCache.get(cacheKey);
+            
+            const audio = new Audio(getAudioUrl(text, lang));
+            audio.preload = 'auto';
+            audioCache.set(cacheKey, audio);
+            if (audioCache.size > 50) audioCache.delete(audioCache.keys().next().value);
+            return audio;
+        }
+
+        function stopAllAudio() {
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio = null;
+            }
+            if (window.speechSynthesis) {
+                window.speechSynthesis.cancel();
+            }
+            isGlobalPlaying = false;
+            activeChunkIndex = -1;
+            
+            // Reset UI cho tất cả các nút
+            document.querySelectorAll('.tts-btn').forEach(btn => {
+                btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Nghe đọc`;
+            });
+            document.querySelectorAll('.chunk-card').forEach(card => {
+                card.classList.remove('active-playing');
+            });
+
+            const playAllBtn = document.getElementById('playAllBtn');
+            const playCursorBtn = document.getElementById('playFromCursorBtn');
+            if (playAllBtn) updatePlayButtonUI(playAllBtn, false, "Đọc tất cả");
+            if (playCursorBtn) updatePlayButtonUI(playCursorBtn, false, "Tiếp tục đọc");
+        }
+
+        async function playAllChunks() {
+            if (isGlobalPlaying) {
+                stopAllAudio();
+                return;
+            }
+
+            const sentences = document.querySelectorAll('.sentence');
+            if (sentences.length === 0 || mainInput.value !== lastSplitText) {
+                splitText();
+                setTimeout(() => playAllChunks(), 300);
+                return;
+            }
+
+            isGlobalPlaying = true;
+            updatePlayButtonUI(document.getElementById('playAllBtn'), true);
+
+            const cards = document.querySelectorAll('.chunk-card');
+            for (let i = 0; i < cards.length; i++) {
+                if (!isGlobalPlaying) break;
+                await playSingleChunk(i);
+            }
+
+            if (isGlobalPlaying) stopAllAudio();
+        }
+
+        async function playFromCursor() {
+            if (isGlobalPlaying) {
+                stopAllAudio();
+                return;
+            }
+
+            const text = mainInput.value.trim();
+            if (!text) {
+                alert('Vui lòng nhập văn bản!');
+                return;
+            }
+
+            // Nếu chưa có kết quả hoặc văn bản mới khác văn bản cũ, phân tách lại
+            const sentences = document.querySelectorAll('.sentence');
+            if (sentences.length === 0 || mainInput.value !== lastSplitText) {
+                splitText();
+                // Đợi render xong
+                setTimeout(() => playFromCursor(), 300);
+                return;
+            }
+
+            const cursorPos = mainInput.selectionStart;
+            let targetChunkIdx = 0;
+            let targetSentenceIdx = 0;
+            let found = false;
+
+            const allSentences = document.querySelectorAll('.sentence');
+            for (let s of allSentences) {
+                const start = parseInt(s.getAttribute('data-start'));
+                const end = parseInt(s.getAttribute('data-end'));
+                const idParts = s.id.split('-');
+                
+                if (cursorPos >= start && cursorPos < end) {
+                    targetChunkIdx = parseInt(idParts[1]);
+                    targetSentenceIdx = parseInt(idParts[2]);
+                    found = true;
+                    break;
+                }
+                
+                if (cursorPos < start && !found) {
+                    targetChunkIdx = parseInt(idParts[1]);
+                    targetSentenceIdx = parseInt(idParts[2]);
+                    found = true;
+                    break;
+                }
+            }
+            
+            if (!found && allSentences.length > 0) {
+                const lastS = allSentences[allSentences.length - 1];
+                const idParts = lastS.id.split('-');
+                targetChunkIdx = parseInt(idParts[1]);
+                targetSentenceIdx = parseInt(idParts[2]);
+            }
+
+            isGlobalPlaying = true;
+            updatePlayButtonUI(document.getElementById('playFromCursorBtn'), true);
+
+            const cards = document.querySelectorAll('.chunk-card');
+            for (let i = targetChunkIdx; i < cards.length; i++) {
+                if (!isGlobalPlaying) break;
+                await playSingleChunk(i, i === targetChunkIdx ? targetSentenceIdx : 0);
+            }
+
+            if (isGlobalPlaying) stopAllAudio();
+        }
+
+        function updatePlayButtonUI(btn, playing, originalText) {
+            if (!btn) return;
+            if (playing) {
+                btn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg> Dừng đọc`;
+                btn.classList.remove('btn-primary', 'btn-secondary');
+                btn.classList.add('btn-secondary');
+            } else {
+                const icon = btn.id === 'playAllBtn' 
+                    ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>`
+                    : `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7-7-7M5 19l7-7-7-7"/></svg>`;
+                btn.innerHTML = `${icon} ${originalText || (btn.id === 'playAllBtn' ? 'Đọc tất cả' : 'Tiếp tục đọc')}`;
+                btn.classList.remove('btn-secondary');
+                btn.classList.add('btn-primary');
+            }
+        }
+
+        async function togglePlayChunk(index) {
+            if (activeChunkIndex === index && isGlobalPlaying) {
+                stopAllAudio();
+            } else {
+                stopAllAudio();
+                isGlobalPlaying = true;
+                await playSingleChunk(index);
+                isGlobalPlaying = false;
+                stopAllAudio();
+            }
+        }
+
+        async function playSingleChunk(index, startFromSentence = 0) {
+            const card = document.getElementById(`card-${index}`);
+            const btn = document.getElementById(`tts-btn-${index}`);
+            if (!card || !btn) return;
+
+            // Nếu đang chơi global và nhảy sang đoạn khác, không cần reset isGlobalPlaying
+            activeChunkIndex = index;
+            card.classList.add('active-playing');
+            
+            // Nếu click vào câu, có thể không cần scroll cả card nếu card đã ở trong tầm mắt
+            if (startFromSentence === 0) {
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            
+            btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg> Dừng`;
+
+            const lang = document.getElementById('langSelect').value;
+            const contentDiv = document.getElementById(`chunk-${index}`);
+            
+            // Lấy danh sách các câu đã được render sẵn
+            const sentenceSpans = contentDiv.querySelectorAll('.sentence');
+            const chunks = Array.from(sentenceSpans).map(s => s.getAttribute('data-raw-text'));
+
+            if (startFromSentence < chunks.length) preloadAudio(chunks[startFromSentence], lang);
+
+            for (let i = startFromSentence; i < chunks.length; i++) {
+                if (!isGlobalPlaying || activeChunkIndex !== index) break;
+                
+                // Highlight câu hiện tại
+                document.querySelectorAll(`#chunk-${index} .sentence`).forEach(s => s.classList.remove('active-sentence'));
+                const currentSpan = document.getElementById(`s-${index}-${i}`);
+                if (currentSpan) {
+                    currentSpan.classList.add('active-sentence');
+                    // Tính toán vị trí để không cuộn quá gắt
+                    const rect = currentSpan.getBoundingClientRect();
+                    if (rect.top < 100 || rect.bottom > window.innerHeight - 100) {
+                        currentSpan.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
+
+                const playbackRate = parseFloat(document.getElementById('speedRate').value);
+                const textToPlay = chunks[i];
+                
+                // Bắt đầu preload cho 2 câu tiếp theo
+                if (i + 1 < chunks.length) preloadAudio(chunks[i + 1], lang);
+                if (i + 2 < chunks.length) preloadAudio(chunks[i + 2], lang);
+
+                await new Promise((resolve) => {
+                    const cacheKey = lang + '_' + textToPlay;
+                    currentAudio = audioCache.get(cacheKey) || preloadAudio(textToPlay, lang);
+                    
+                    // Khởi tạo lại trạng thái để đọc
+                    currentAudio.currentTime = 0;
+                    currentAudio.playbackRate = playbackRate;
+                    
+                    // Phát xong là kết thúc Promise ngay lập tức để chuyển câu không bị khựng
+                    currentAudio.onended = () => resolve();
+                    currentAudio.onerror = (e) => {
+                        console.error("Audio playback error:", e);
+                        resolve();
+                    };
+                    
+                    const playPromise = currentAudio.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(error => {
+                            console.error("Playback failed:", error);
+                            resolve();
+                        });
+                    }
+                });
+            }
+
+            if (activeChunkIndex === index) {
+                card.classList.remove('active-playing');
+                btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Nghe đọc`;
+            }
+        }
+
+        async function playFromSentence(chunkIdx, sentenceIdx) {
+            stopAllAudio();
+            isGlobalPlaying = true;
+            updatePlayButtonUI(document.getElementById('playFromCursorBtn'), true);
+            
+            const cards = document.querySelectorAll('.chunk-card');
+            for (let i = chunkIdx; i < cards.length; i++) {
+                if (!isGlobalPlaying) break;
+                await playSingleChunk(i, i === chunkIdx ? sentenceIdx : 0);
+            }
+            
+            if (isGlobalPlaying) stopAllAudio();
+        }
+
+        async function copyChunk(index) {
+            const content = document.getElementById(`chunk-${index}`).textContent;
+            try {
+                await navigator.clipboard.writeText(content);
+                const successMsg = document.getElementById(`success-${index}`);
+                successMsg.classList.add('show');
+                setTimeout(() => successMsg.classList.remove('show'), 2000);
+            } catch (err) {
+                console.error('Lỗi khi sao chép: ', err);
+            }
+        }
+
+        function speakSystem(text, lang, rate, onEnd) {
+            if (!window.speechSynthesis) {
+                onEnd();
+                return;
+            }
+            // Hủy các câu đang đọc dở của hệ thống để tránh bị kẹt
+            window.speechSynthesis.cancel();
+
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = lang;
+            utterance.rate = rate;
+            utterance.onend = onEnd;
+            utterance.onerror = (e) => {
+                console.error("System Speech Error:", e);
+                onEnd();
+            };
+            
+            // Tìm giọng đọc phù hợp với ngôn ngữ
+            const voices = window.speechSynthesis.getVoices();
+            const voice = voices.find(v => v.lang.startsWith(lang)) || voices.find(v => v.lang.includes(lang.toUpperCase()));
+            if (voice) utterance.voice = voice;
+
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function testAudio() {
+            const lang = document.getElementById('langSelect').value;
+            const engine = document.getElementById('ttsEngine').value;
+            const testText = "Xin chào, đây là âm thanh kiểm tra.";
+            
+            if (engine === 'google') {
+                const url = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(testText)}&tl=${lang}&client=tw-ob`;
+                const audio = new Audio(url);
+                audio.play().then(() => {
+                    console.log("Google TTS test success");
+                }).catch((err) => {
+                    console.warn("Google TTS test failed, trying System:", err);
+                    alert("Google TTS bị chặn hoặc có lỗi. Đang thử giọng Hệ thống...");
+                    speakSystem(testText, lang, 1.0, () => {});
+                });
+            } else {
+                speakSystem(testText, lang, 1.0, () => {});
+            }
+        }
+
+        function clearAll() {
+            mainInput.value = '';
+            charCountDisplay.textContent = '0 ký tự';
+            resultsContainer.innerHTML = `
+                <div class="empty-state">
+                    Kết quả sẽ hiển thị tại đây sau khi bạn phân tách
+                </div>
+            `;
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio = null;
+            }
+            isPlaying = false;
+        }
+
+        function escapeHtml(text) {
+            return text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        function cleanTextForTTS(text) {
+            // Loại bỏ các ký tự đặc biệt theo yêu cầu người dùng: " ( ) < > * và các biến thể ngoặc kép
+            // Thay thế bằng khoảng trắng để tránh dính chữ
+            return text.replace(/["“”''‘’«»()<>*]/g, ' ').replace(/\s+/g, ' ').trim();
+        }
+
+        // --- FONT SETTINGS ---
+        function updateFont() {
+            const font = document.getElementById('fontSelect').value;
+            document.querySelectorAll('.chunk-content').forEach(el => {
+                el.style.fontFamily = font;
+            });
+            saveState();
+        }
+
+        // --- FORMATTING ---
+        function formatTextDisplay(text, chunkIdx, chunkOffset) {
+            const sentences = [];
+            let remaining = text;
+            let currentStart = chunkOffset;
+            
+            while (remaining.length > 0) {
+                let takeLen = remaining.length;
+                
+                if (takeLen > 180) {
+                    let splitAt = -1;
+                    const breakPoints = ['.\n', '!\n', '?\n', '”\n', '"\n', '... ', '. ', '! ', '? ', '\n', ', ', '; ', ': ', ' - '];
+                    
+                    for (const char of breakPoints) {
+                        const pos = remaining.lastIndexOf(char, 180);
+                        if (pos > 50 && pos > splitAt) {
+                            splitAt = pos + char.length; 
+                        }
+                    }
+                    
+                    if (splitAt === -1) {
+                        splitAt = remaining.lastIndexOf(' ', 180);
+                        if (splitAt !== -1) splitAt += 1;
+                    }
+                    
+                    if (splitAt <= 0) splitAt = 180;
+                    takeLen = splitAt;
+                }
+                
+                const chunkStr = remaining.substring(0, takeLen);
+                
+                if (chunkStr.trim()) {
+                    sentences.push({
+                        text: chunkStr,
+                        start: currentStart,
+                        end: currentStart + chunkStr.length
+                    });
+                } else if (chunkStr.length > 0) {
+                    if (sentences.length > 0) {
+                        sentences[sentences.length - 1].text += chunkStr;
+                        sentences[sentences.length - 1].end += chunkStr.length;
+                    }
+                }
+                
+                currentStart += chunkStr.length;
+                remaining = remaining.substring(takeLen);
+            }
+
+            return sentences.map((sObj, i) => {
+                const cleanedText = cleanTextForTTS(sObj.text);
+                return `<span id="s-${chunkIdx}-${i}" class="sentence" data-raw-text="${escapeHtml(cleanedText)}" data-start="${sObj.start}" data-end="${sObj.end}" onclick="playFromSentence(${chunkIdx}, ${i})">${escapeHtml(sObj.text)}</span>`;
+            }).join('');
+        }
+
+    </script>
+</body>
+</html>
