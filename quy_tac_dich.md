@@ -5,13 +5,13 @@ Tài liệu này chứa các quy tắc dịch thuật, từ vựng và quy trìn
 ## 1. Đồng Nhất Giọng Văn & Xưng Hô
 
 - **Bối cảnh:** Giữ vững văn phong và từ vựng phù hợp với bối cảnh quý tộc, cung đình phong kiến phương Tây. Lời thoại cần phản ánh đúng địa vị, giai cấp và thái độ của nhân vật.
-- **Xưng hô cơ bản:** 
-  - Rozemyne xưng "tôi", gọi các nhân vật bề trên là "ngài", "phu nhân", "tiểu thư", "lãnh chúa",... 
-  - Với Wilfried/Cornelius (anh trai): xưng "huynh - muội".
+- **Xưng hô cơ bản:**
+  - Rozemyne xưng "tôi", gọi các nhân vật bề trên là "ngài", "phu nhân", "tiểu thư", "lãnh chúa",...
+  - Với Wilfried/Cornelius anh trai của rozemyne.
   - Với retainers (hầu cận): xưng "ta - ngươi" hoặc "tôi - cậu/bạn/anh/chị" tùy vào thái độ của Rozemyne với từng người, nhưng thường Rozemyne khá lịch sự với hầu cận của mình (ví dụ: dùng "tôi", gọi tên). Hầu cận xưng "thần - người/tiểu thư".
   - Quý tộc nói chuyện với nhau: dùng các từ ngữ trang trọng, lịch sự, có phần vòng vo đặc trưng của quý tộc.
-- **Mạch truyện:** Đảm bảo câu cú mượt mà, giữ nguyên cảm xúc và những đoạn độc thoại nội tâm đặc trưng của nhân vật chính mà không làm đứt đoạn cảm xúc của người đọc. 
-- **Cách xưng hô tham khảo:** 
+- **Mạch truyện:** Đảm bảo câu cú mượt mà, giữ nguyên cảm xúc và những đoạn độc thoại nội tâm đặc trưng của nhân vật chính mà không làm đứt đoạn cảm xúc của người đọc.
+- **Cách xưng hô tham khảo:**
   - Lord: Lãnh chúa (hoặc Ngài tuỳ ngữ cảnh).
   - Lady: Phu nhân / Tiểu thư (tuỳ độ tuổi và tình trạng hôn nhân).
   - **Ferdinand:** Khi Rozemyne xưng hô hoặc nhắc đến Ferdinand (kể cả trong suy nghĩ nội tâm), luôn sử dụng "Ngài Ferdinand" để thể hiện đúng vai vế và sự tôn trọng.
@@ -20,9 +20,10 @@ Tài liệu này chứa các quy tắc dịch thuật, từ vựng và quy trìn
 
 Để các công cụ đọc màn hình (như Google Dịch / Trợ lý ảo) có thể đọc tên nhân vật một cách trôi chảy và dễ nghe, tên của nhân vật chính được phiên âm sang cách đọc tiếng Việt trong văn bản dịch:
 
-- **Rozemyne** -> Ro ze mai
+- **Rozemyne** -> Ro se mai
 
 Các tên riêng khác **giữ nguyên gốc**, không dịch hay phiên âm trừ khi có yêu cầu đặc biệt:
+
 - Ferdinand, Wilfried, Hannelore, Lieseleta, Philine, Hartmut, Eglantine, Lestilaut, Ortwin, Detlinde, Rudiger, Adolphine, Justus, Brunhilde, Gudrun, Rihyarda, Eckhart, Angelica, Sylvester, Cornelius, Hirschur, Bonifatius, Roderick, Leonore, Judithe, Traugott, Matthias,...
 
 ## 3. Thuật Ngữ Đặc Thù (Glossary)
@@ -56,7 +57,7 @@ Giữ nguyên gốc hoặc dịch theo quy ước sau để đảm bảo tính n
 Khi xử lý các tệp văn bản lớn (như rawtext dài hàng trăm dòng), việc in trực tiếp ra console hoặc dùng tool thay thế toàn bộ văn bản rất dễ gặp lỗi vượt giới hạn token (token limit) hoặc thao tác chậm chạp. Quy trình tiêu chuẩn là:
 
 1. **Chia nhỏ (Chunking):** Xem tệp nguồn (`rawtext...txt`) và dịch theo từng đoạn nhỏ (khoảng 30-40 dòng).
-2. **Sử dụng Script Python (`append_chunk.py`):** Dùng Python để mở tệp đích ở chế độ nối đuôi (`'a'` - append) và ghi bản dịch vào. 
+2. **Sử dụng Script Python (`append_chunk.py`):** Dùng Python để mở tệp đích ở chế độ nối đuôi (`'a'` - append) và ghi bản dịch vào.
    - Mã hóa (encoding) phải luôn luôn là `utf-8`.
    - Ví dụ:
      ```python

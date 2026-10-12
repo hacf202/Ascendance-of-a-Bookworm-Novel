@@ -5,13 +5,13 @@ translations = [
 """
 "Roderick, xin hãy cân nhắc điều này cẩn thận..." tôi nói. "Trở thành một người dâng tên là một quyết định quá hệ trọng để thực hiện theo sự bốc đồng."
 Việc có thêm ma lực chắc chắn là điều quan trọng đối với các quý tộc, nhưng tôi không nghĩ rằng nó đáng để theo đúng nghĩa đen là giao cho người khác quyền kiểm soát cuộc sống của bạn—đặc biệt là khi "người khác" đó lại là tôi.
-"Tiểu thư Ro ze mai nói đúng," Matthias nói. "Đây không phải là điều để quyết định một cách quá bốc đồng như vậy. Roderick, hãy dùng đầu óc của cậu một chút đi."
+"Tiểu thư Ro se mai nói đúng," Matthias nói. "Đây không phải là điều để quyết định một cách quá bốc đồng như vậy. Roderick, hãy dùng đầu óc của cậu một chút đi."
 "Ngài Matthias, tôi—"
-"Ngay khoảnh khắc chúng ta dâng tên của mình cho ai đó, chúng ta sẽ cắt đứt mối quan hệ với cha mẹ mình mãi mãi. Chúng ta đã ở trong phe Veronica suốt cuộc đời mình; ngay cả khi cậu dâng tên của mình và kết thúc bằng việc trở thành tùy tùng của Tiểu thư Ro ze mai, mọi người sẽ đối xử với cậu như một kẻ phản bội, và ai mà biết các phe phái sẽ trông như thế nào trong vài năm nữa," Matthias nói, nhíu mày trong một biểu cảm đau khổ. "Từng... có một người đàn ông. Anh ta đã bị mê hoặc bởi một người được định sẵn để trở thành aub tiếp theo, và trái tim anh ta rực cháy khát khao được phục vụ người đó mãi mãi như một giebe trung thành khi người đó lên nắm giữ chiếc ghế aub. Nhưng tình hình đã thay đổi. Người mà trái tim anh ta hướng về đã đánh mất tư cách tranh cử vào chiếc ghế đó chỉ sau một đêm."
+"Ngay khoảnh khắc chúng ta dâng tên của mình cho ai đó, chúng ta sẽ cắt đứt mối quan hệ với cha mẹ mình mãi mãi. Chúng ta đã ở trong phe Veronica suốt cuộc đời mình; ngay cả khi cậu dâng tên của mình và kết thúc bằng việc trở thành tùy tùng của Tiểu thư Ro se mai, mọi người sẽ đối xử với cậu như một kẻ phản bội, và ai mà biết các phe phái sẽ trông như thế nào trong vài năm nữa," Matthias nói, nhíu mày trong một biểu cảm đau khổ. "Từng... có một người đàn ông. Anh ta đã bị mê hoặc bởi một người được định sẵn để trở thành aub tiếp theo, và trái tim anh ta rực cháy khát khao được phục vụ người đó mãi mãi như một giebe trung thành khi người đó lên nắm giữ chiếc ghế aub. Nhưng tình hình đã thay đổi. Người mà trái tim anh ta hướng về đã đánh mất tư cách tranh cử vào chiếc ghế đó chỉ sau một đêm."
 Một ai đó trong đám đông nuốt nước bọt cái ực. Đó không phải là một kịch bản bất khả thi; Veronica đã nắm giữ quyền lực trong nhiều thập kỷ, chỉ để đột nhiên mất tất cả. Chỉ mới vài năm trôi qua kể từ đó, và hoàn toàn có khả năng cán cân quyền lực sẽ lật ngược một lần nữa.
-"Tiểu thư Ro ze mai đã theo học Học viện Hoàng gia vào năm ngoái, và trong khoảng thời gian của một mùa đông duy nhất, người đã hình thành các mối quan hệ với hoàng tộc và nhiều ứng cử viên lãnh chúa từ các lãnh địa xếp hạng hàng đầu," Matthias tiếp tục. "Xem xét việc ảnh hưởng của người sẽ giúp ích cho lãnh địa của chúng ta theo những cách mà trước đây không thể tưởng tượng được, tôi có thể đồng ý rằng việc trở thành một người dâng tên cho người là một bước đi danh giá và đáng giá, nhưng..." Cậu ấy dừng lại.
+"Tiểu thư Ro se mai đã theo học Học viện Hoàng gia vào năm ngoái, và trong khoảng thời gian của một mùa đông duy nhất, người đã hình thành các mối quan hệ với hoàng tộc và nhiều ứng cử viên lãnh chúa từ các lãnh địa xếp hạng hàng đầu," Matthias tiếp tục. "Xem xét việc ảnh hưởng của người sẽ giúp ích cho lãnh địa của chúng ta theo những cách mà trước đây không thể tưởng tượng được, tôi có thể đồng ý rằng việc trở thành một người dâng tên cho người là một bước đi danh giá và đáng giá, nhưng..." Cậu ấy dừng lại.
 
-"Chúng ta vẫn chưa biết liệu ảnh hưởng đó có đảm bảo được quyền lực hay không. Tôi sẽ không nói điều này nếu cậu đang dâng tên của mình cho Ngài Sylvester hoặc Phu nhân Florencia, cặp đôi lãnh chúa, nhưng Tiểu thư Ro ze mai, Ngài Wilfried, và Tiểu thư Charlotte đều chưa đến tuổi trưởng thành, và chúng ta không biết tương lai có thể nắm giữ điều gì. Đó là lý do tại sao chúng ta không thể đủ khả năng để đưa ra những quyết định thiếu suy nghĩ như vậy, Roderick. Chúng ta sẽ mất đi cha mẹ của mình, và họ là chỗ dựa duy nhất mà chúng ta có ngay lúc này."
+"Chúng ta vẫn chưa biết liệu ảnh hưởng đó có đảm bảo được quyền lực hay không. Tôi sẽ không nói điều này nếu cậu đang dâng tên của mình cho Ngài Sylvester hoặc Phu nhân Florencia, cặp đôi lãnh chúa, nhưng Tiểu thư Ro se mai, Ngài Wilfried, và Tiểu thư Charlotte đều chưa đến tuổi trưởng thành, và chúng ta không biết tương lai có thể nắm giữ điều gì. Đó là lý do tại sao chúng ta không thể đủ khả năng để đưa ra những quyết định thiếu suy nghĩ như vậy, Roderick. Chúng ta sẽ mất đi cha mẹ của mình, và họ là chỗ dựa duy nhất mà chúng ta có ngay lúc này."
 Roderick tái mặt. Đôi mắt của cậu ấy không yên và đảo từ Matthias sang tôi, nhưng tôi không nói gì.
 "Hãy suy nghĩ thật cẩn thận, được chứ...?" Matthias kết luận, giọng nói của cậu ấy nhuốm một chút đắng cay. Hẳn là cậu ấy đã lặp đi lặp lại những lời đó rất nhiều lần rồi, và chúng mang một sức nặng khiến nó nghe hoàn toàn như thể cậu ấy thực sự đang tự nói với chính mình.
 
@@ -26,10 +26,10 @@ Tôi có thể hiểu điều đó trong bối cảnh tình yêu đôi lứa, nh
 "Tôi đã tận mắt chứng kiến niềm vui mà anh trai Eckhart của chúng ta cảm thấy khi anh ấy giành được sự tin tưởng của Ngài Ferdinand thông qua việc dâng tên, và sự tuyệt vọng mà anh ấy cảm thấy khi anh ấy trú ẩn trong đền thờ," Cornelius nói. "Tôi không nghĩ tôi có thể dâng tên của mình cho ai đó sau khi thấy anh ấy đã suy sụp đến mức nào."
 
 Phải rồi... Huynh ấy đã tận mắt nhìn thấy hậu quả của việc ai đó dâng tên của mình.
-Hartmut gật đầu, rõ ràng là đồng ý với Cornelius, nhưng rồi anh ấy thản nhiên nói, "Tôi sẽ không bận tâm đến việc dâng tên của mình cho Tiểu thư Ro ze mai, nếu người khao khát điều đó."
+Hartmut gật đầu, rõ ràng là đồng ý với Cornelius, nhưng rồi anh ấy thản nhiên nói, "Tôi sẽ không bận tâm đến việc dâng tên của mình cho Tiểu thư Ro se mai, nếu người khao khát điều đó."
 Mọi người dường như hoàn toàn sửng sốt, lúc đó anh ấy mỉm cười và nói thêm, "Nhưng dĩ nhiên là người không muốn thế."
 Ferdinand có thể đã cần một sự thể hiện lòng tận tụy cực đoan như vậy, nhưng đó là vì ngài ấy đã bị bủa vây bởi kẻ thù và thiếu đi bất kỳ ai ngài ấy có thể tin tưởng. Tôi có cha mẹ nuôi, cha mẹ ruột là thượng quý tộc, và một số người giám hộ đang chăm sóc cho tôi, thêm vào đó là các tùy tùng của tôi, những người mà tôi rất hòa thuận.
-"Tiểu thư Ro ze mai không hề yêu cầu một lòng trung thành cuồng tín như vậy một chút nào, người cũng không hiểu được giá trị của việc nhận một cái tên," Hartmut tiếp tục. "Người cũng coi trọng ý chí tự do của người khác đến mức người cho phép ngay cả các xám y linh mục và vu nữ tự đưa ra quyết định của riêng mình. Thật khó để tưởng tượng rằng người sẽ đánh giá cao một sự thể hiện đại diện cho điều hoàn toàn ngược lại."
+"Tiểu thư Ro se mai không hề yêu cầu một lòng trung thành cuồng tín như vậy một chút nào, người cũng không hiểu được giá trị của việc nhận một cái tên," Hartmut tiếp tục. "Người cũng coi trọng ý chí tự do của người khác đến mức người cho phép ngay cả các xám y linh mục và vu nữ tự đưa ra quyết định của riêng mình. Thật khó để tưởng tượng rằng người sẽ đánh giá cao một sự thể hiện đại diện cho điều hoàn toàn ngược lại."
 Hartmut đang giải thích tư duy của tôi cho các tùy tùng khác bằng những từ ngữ đơn giản. Anh ấy chính xác đến mức kỳ lạ, như thể anh ấy đã tìm ra cách nào đó để mổ xẻ những suy nghĩ của tôi, nhưng anh ấy đã đúng—tôi sẽ không muốn bất kỳ ai dâng tên của họ cho tôi.
 "Wilfried, Charlotte, hai người có chấp nhận tên của những đứa trẻ đó không?" tôi hỏi, nhận thức được rằng họ cũng ở cùng hoàn cảnh với tôi lần này.
 Wilfried gật đầu như thể câu trả lời đúng là quá rõ ràng.
@@ -45,11 +45,11 @@ Trong khi đó, những đứa trẻ của phe Veronica cũ lại giống như n
 "Huynh nghĩ muội sẽ thấy họ đáng tin cậy hơn rất nhiều sau khi dâng tên so với việc họ chỉ đơn giản là yêu cầu được đổi phe," Wilfried lưu ý.
 Tôi chỉ có thể đáp lại bằng một cái gật đầu lấp lửng.
 Bây giờ khi tất cả các học sinh năm nhất đã chuyển đến và học sinh của mọi năm đã tập trung lại với nhau, bữa tối hôm nay sang trọng hơn một chút so với hôm qua. Ủy ban Nâng cao Điểm số chúng tôi đã chia mọi người thành các đội và công bố phần thưởng cho cuộc thi năm nay: công thức làm bánh tart. Tôi đã chọn ngẫu nhiên một món ăn không có trong sách công thức mà chúng tôi đang bán.
-"Chính xác thì Tiểu thư Ro ze mai có bao nhiêu công thức nấu ăn vậy?!" một trong số các học sinh thốt lên.
+"Chính xác thì Tiểu thư Ro se mai có bao nhiêu công thức nấu ăn vậy?!" một trong số các học sinh thốt lên.
 "Chắc chắn lần này chúng ta sẽ thắng," một người khác nói. "Tôi có thể đảm bảo điều đó."
 Khi thấy mọi người trở nên sôi nổi về việc học tập trong sảnh sinh hoạt chung hệt như những gì họ đã làm vào năm ngoái, tôi thở phào nhẹ nhõm. Bầu không khí nặng nề từ một lúc trước đã phai nhạt đi phần nào, và ngay cả những đứa trẻ của phe Veronica cũ cũng đang hòa nhập vào... Mặc dù tôi không thể nói chắc chắn liệu đây có chỉ là một cách để các quý tộc che giấu cảm xúc của họ hay không.
 Ngày hôm sau, khi mọi người nhanh chóng tập hợp thành các đội và bắt đầu học tập, Hirschur đột ngột bước vào ký túc xá.
-"Tiểu thư Ro ze mai, Ngài Wilfried, lễ thăng cấp và buổi họp mặt giao lưu sẽ diễn ra vào ngày mai, vậy mà ta không nhận được bất kỳ tin tức nào cho biết rằng tất cả các học sinh của Ehrenfest đều đã đến," bà ấy nói một cách gay gắt.
+"Tiểu thư Ro se mai, Ngài Wilfried, lễ thăng cấp và buổi họp mặt giao lưu sẽ diễn ra vào ngày mai, vậy mà ta không nhận được bất kỳ tin tức nào cho biết rằng tất cả các học sinh của Ehrenfest đều đã đến," bà ấy nói một cách gay gắt.
 "Có ai được bảo phải báo cho bà ấy biết không...?" tôi hỏi với một cái nghiêng đầu.
 
 Cornelius thở dài. "Đó không phải là một quy tắc rõ ràng, nhưng trong những năm trước, thượng quý tộc năm cuối nhất luôn liên lạc với Giáo sư Hirschur. Người có cấp bậc cao nhất được kỳ vọng sẽ làm điều này, vì vậy chúng tôi đã thống nhất là Ngài Wilfried vào năm nay. Phải không, Ignaz?" huynh ấy hỏi, liếc nhìn một học giả tập sự đang đứng phía sau Wilfried.
@@ -58,7 +58,7 @@ Ignaz nở một nụ cười rắc rối. "Thần đã quên báo cho Ngài Wil
 Có điều gì đó về việc Wilfried nói lời xin lỗi khiến tôi cảm thấy kỳ lạ. Chắc chắn điều quan trọng là chúng tôi phải theo dõi đúng quy trình và phải chịu trách nhiệm khi chúng tôi thất bại, nhưng cảm giác không đúng khi Hirschur lại quá chỉ trích trong khi bà ấy thậm chí ngay từ đầu đã không ở trong ký túc xá.
 Tôi liếc nhìn bà ấy ngay khi bà ấy nói, "Lần sau hãy cẩn thận hơn."
 "Chẳng phải vấn đề lớn nhất là người giám sát ký túc xá của chúng ta đã không có mặt ở ký túc xá sao?" tôi hỏi. "Ta nói rằng những người giám sát khác vẫn ở lại ký túc xá kể từ lúc những học sinh đầu tiên bắt đầu đến chẳng lẽ không đúng sao?"
-"Ồ, người không biết sao, Tiểu thư Ro ze mai? Flutrane và Heilschmerz chữa lành theo những cách của riêng họ," Hirschur trả lời với một nụ cười.
+"Ồ, người không biết sao, Tiểu thư Ro se mai? Flutrane và Heilschmerz chữa lành theo những cách của riêng họ," Hirschur trả lời với một nụ cười.
 Đó là một cách nói uyển ngữ mà về cơ bản có nghĩa là "mỗi người đều có cách làm việc của riêng mình," vì vậy tôi có thể suy luận rằng bà ấy hoàn toàn không có ý định thay đổi cách làm của mình. Không thể làm được gì nhiều hơn, tôi chỉ đơn thuần nhún vai.
 "Tiểu thư ấy chắc chắn là giống với Phu nhân Florencia..." Hirschur đột nhiên lẩm bẩm, mắt bà ấy dán chặt vào Charlotte.
 Bà ấy sau đó di chuyển đến giữa phòng sinh hoạt chung và bắt đầu giải thích lịch trình ngày mai và bản chất mới của ký túc xá cho những học sinh mới. Tất cả đều giống hệt như năm ngoái.
@@ -68,7 +68,7 @@ Bà ấy sau đó di chuyển đến giữa phòng sinh hoạt chung và bắt �
 """
 "...Hơn nữa, lễ thăng cấp sẽ được tổ chức vào hồi chuông thứ ba ngày mai, và bữa trưa sẽ được phục vụ tại các buổi họp mặt giao lưu," Hirschur lưu ý, lúc này đã đi đến phần cuối bài phát biểu nhanh gọn của bà ấy. "Các bài học bắt đầu vào ngay ngày hôm sau. Ehrenfest hiện xếp hạng thứ mười, vì vậy hãy cẩn thận sử dụng các cánh cửa và căn phòng được đánh dấu phù hợp. Tất cả các bạn đều đã đạt được rất nhiều tiến bộ trong việc học tập của mình, và ta không kỳ vọng bất kỳ ai trong số các bạn sẽ gặp vấn đề trong lớp học, nhưng đừng quên báo cáo kết quả của mình. Có câu hỏi nào không?"
 Một học sinh mở miệng, nhưng trước khi họ kịp nói gì, Hirschur tiếp tục.
-"Tiểu thư Ro ze mai, ta có một vài câu hỏi dành cho người. Người có phiền đi cùng ta không?" bà ấy hỏi với một nụ cười. Đôi mắt màu tím của bà ấy lấp lánh dữ dội như của một loài động vật ăn thịt đang tập trung vào con mồi của mình.
+"Tiểu thư Ro se mai, ta có một vài câu hỏi dành cho người. Người có phiền đi cùng ta không?" bà ấy hỏi với một nụ cười. Đôi mắt màu tím của bà ấy lấp lánh dữ dội như của một loài động vật ăn thịt đang tập trung vào con mồi của mình.
 Chà, tôi biết bà ấy có lẽ muốn hỏi về trang phục của Schwartz và Weiss, và những tài liệu nghiên cứu mà Ferdinand đã đưa cho tôi, nhưng mà... Thật dễ để đoán những gì Hirschur định nói—hay đúng hơn, thật khó để nghĩ ra bất cứ điều gì khác mà bà ấy sẽ muốn biết. Và vì tôi có một số thứ từ Ferdinand mà tôi được yêu cầu đưa cho bà ấy, tôi gật đầu.
 "Tôi không phiền, nhưng xin hãy giữ nó ngắn gọn," tôi trả lời. "Không giống như Ferdinand, tôi không thể dành cả đêm để thảo luận những vấn đề này với bà."
 "Nghiên cứu của ta chắc chắn sẽ phải chịu đựng nếu ta ốm yếu như người," Hirschur nói với một cái gật đầu.
@@ -78,7 +78,7 @@ Tôi ra hiệu bằng mắt cho Rihyarda đi lấy những tài liệu mà Ferdi
 Ngẫu nhiên, để có một lượng lớn nguồn tài nguyên nhằm vắt kiệt các ân huệ từ Hirschur, tôi đã sắp xếp các tài liệu có độ khẩn cấp thấp hơn thành năm chồng, sẽ được ban phát từng cái một khi chúng tôi cần thêm sự giúp đỡ từ bà ấy. Tất cả những điều này đều nhờ có Justus, người mà sau khi biết về tình hình của ký túc xá, đã nhờ Ferdinand hỗ trợ trong việc nhờ đến sự giúp đỡ của Hirschur khi cần thiết.
 "Bây giờ thì—ta muốn biết những vòng tròn ma thuật nào đã được sử dụng trong các bộ trang phục, và chúng đã được cải tiến như thế nào."
 Hirschur không lãng phí chút thời gian nào để bắt đầu cuộc thẩm vấn của mình, rõ ràng là quá mất kiên nhẫn để chờ những bộ trang phục được mang đến cho bà ấy, nhưng tôi đã giao lại tất cả công việc kinh doanh nghiên cứu cho Ferdinand. Nói cách khác, có rất ít điều mà tôi thực sự có thể giúp bà ấy. Điều duy nhất tôi có thể nói để đáp lại hàng loạt câu hỏi của bà ấy là bà ấy có thể đi cùng chúng tôi khi chúng tôi đến thay quần áo cho hai con shumil.
-"Người không hứng thú với việc nghiên cứu các vòng tròn ma thuật sao, Tiểu thư Ro ze mai?" Hirschur hỏi. "Không phải người được cho là đệ tử được đánh giá cao nhất của Ferdinand sao?"
+"Người không hứng thú với việc nghiên cứu các vòng tròn ma thuật sao, Tiểu thư Ro se mai?" Hirschur hỏi. "Không phải người được cho là đệ tử được đánh giá cao nhất của Ferdinand sao?"
 "Ferdinand là người giám hộ của tôi, và mặc dù đôi khi ngài ấy đóng vai trò là một người hướng dẫn, tôi sẽ không nói rằng chúng tôi có mối quan hệ thầy trò khi nói đến nghiên cứu," tôi trả lời, không muốn bị tính là một trong những nhà khoa học điên rồ của Ehrenfest. Sự quan tâm của tôi là ở việc đọc sách hơn là thực hiện bất kỳ nghiên cứu thực tế nào. Việc biên soạn các tài liệu nghiên cứu và những thứ tương tự chắc chắn được chào đón, nhưng tôi không cảm thấy bất kỳ mong muốn nào để tự mình tạo ra những tài liệu như vậy.
 "Tuy nhiên, tôi dự định trở thành một thủ thư, vì vậy tôi sẽ dốc hết sức mình vào việc nghiên cứu các ma cụ và vòng tròn ma thuật có thể đóng một vai trò quan trọng trong việc vận hành một thư viện. Điều đó làm tôi nhớ ra—Giáo sư Hirschur, khi nào chúng ta nên mang quần áo đến thư viện?"
 "Tại sao không đơn giản là hỏi bằng ordonnanz?" Hirschur gợi ý.
@@ -95,7 +95,7 @@ Cuối cùng, chúng tôi mặc kệ Hirschur và ăn trưa. Một số học si
 
 "Thưa tiểu thư, thưa tiểu thư!" Rihyarda kêu lên, vỗ nhẹ vào vai tôi và gập cuốn sách của tôi lại.
 Tôi giật mình ngước lên và thấy Hirschur đang nhìn xuống tay tôi với đôi mắt tò mò.
-"Tiểu thư Ro ze mai, cuốn sách đó là gì vậy?" bà ấy hỏi.
+"Tiểu thư Ro se mai, cuốn sách đó là gì vậy?" bà ấy hỏi.
 "Một loại mới được làm bằng giấy Ehrenfest," tôi trả lời.
 "Ta có thể xem nó được không?"
 "Bà có thể đọc nó bao lâu tùy thích, miễn là bà đọc nó ở đây. Nó là tài sản của phòng sinh hoạt chung, và tôi sẽ không cho phòng thí nghiệm của bà mượn nó đâu," tôi nói, giải thích các quy tắc của tủ sách trong khi đưa bản sao cuốn Những câu chuyện ở Học viện Hoàng gia của tôi cho bà ấy.
@@ -110,7 +110,7 @@ Khi Hirschur rời đi, đã đến lúc chuẩn bị cho lễ thăng cấp và 
 "Vì mục đích tiếp thị, ta yêu cầu các bạn đeo những chiếc kẹp tóc này không được thiếu sót trong lễ thăng cấp năm nay," tôi tuyên bố. "Chúng ta cũng sẽ phân phát rinsham, vì vậy hãy chắc chắn làm sạch tóc của các bạn vào ngày hôm trước."
 Những đánh giá của Brunhilde rất hợp lý; những chiếc kẹp tóc nhiều màu trong hộp hoàn toàn phù hợp với màu tóc và vẻ ngoài của các cô gái. Tôi rất ấn tượng khi cô ấy có thể nắm vững phong cách của quá nhiều học sinh như vậy. Tôi có thể hiểu được việc biết những thông tin như vậy về những người thân cận với bạn, nhưng bất cứ điều gì hơn thế nghe có vẻ bất khả thi đối với tôi.
 "Ôi chao, thật đáng yêu làm sao!"
-"Không thể ngờ người có thể chuẩn bị nhiều kẹp tóc cùng lúc đến vậy, Tiểu thư Ro ze mai."
+"Không thể ngờ người có thể chuẩn bị nhiều kẹp tóc cùng lúc đến vậy, Tiểu thư Ro se mai."
 "Tất cả đều do Brunhilde làm. Cô ấy có con mắt khá sắc sảo khi nói đến thời trang," tôi trả lời. "Bây giờ, Wilfried... Chúng ta cũng sẽ phân phát một chút rinsham cho các chàng trai nữa."
 "Không cần đâu. Huynh đã giữ một ít cho họ rồi," Wilfried nói.
 Sylvester dường như đã chuẩn bị rinsham cho tất cả các nam sinh sau khi tham dự Hội nghị Lãnh chúa.
@@ -121,7 +121,7 @@ Wilfried nhăn mặt một chút. "Huynh được bảo phải sử dụng loạ
 
 theo sự lựa chọn đâu," huynh ấy trả lời, vẫy chai rinsham từ bên này sang bên kia. Tôi thấy một vài cậu bé khác cũng gật đầu đồng tình.
 Đó là ngày diễn ra lễ thăng cấp và các buổi họp mặt giao lưu. Chúng tôi cần phải có mặt tại khán phòng vào hồi chuông thứ ba, vì vậy sau bữa sáng, chúng tôi mặc quần áo và khoác lên mình chiếc áo choàng hiển thị màu sắc của lãnh địa chúng tôi. Chúng tôi cũng đeo trâm cài nhận dạng của mình, điều đó rất quan trọng, bởi vì chúng tôi không thể quay trở lại ký túc xá nếu không có chúng.
-"Tiểu thư Ro ze mai," Brunhilde nói. "Cornelius, Leonore, và Judithe sẽ là hiệp sĩ hộ vệ của người trong buổi họp mặt giao lưu. Tôi sẽ tháp tùng người với tư cách là người hầu, và Hartmut là học giả. Điều này có chấp nhận được không?"
+"Tiểu thư Ro se mai," Brunhilde nói. "Cornelius, Leonore, và Judithe sẽ là hiệp sĩ hộ vệ của người trong buổi họp mặt giao lưu. Tôi sẽ tháp tùng người với tư cách là người hầu, và Hartmut là học giả. Điều này có chấp nhận được không?"
 Tôi gật đầu. Buổi họp mặt giao lưu sẽ có sự tham dự của hoàng tộc và các ứng cử viên lãnh chúa, vì vậy những tùy tùng có địa vị cao nhất của tôi được ưu tiên. Judithe, là trung quý tộc duy nhất đi cùng tôi, có vẻ hơi lo lắng về điều này. Nụ cười của em ấy cứng nhắc một cách bất thường.
 "Tôi sẽ cố gắng hết sức để lấp đầy khoảng trống mà Angelica để lại," Judithe nói, giọng em ấy chỉ hơi run rẩy một chút.
 "Không có gì phải lo lắng cả," tôi trả lời, cố gắng an ủi em ấy. "Sẽ không có bất kỳ sự cố nào xảy ra trong suốt buổi họp mặt giao lưu đâu."
@@ -157,7 +157,7 @@ Chúng tôi rời khỏi khán phòng và di chuyển đến cùng những hội
 Cứ thoải mái dựa dẫm vào ta nhiều bao nhiêu tùy thích. Dù sao thì ta cũng là tỷ tỷ của muội mà. Tôi nắm lấy tay Charlotte và mỉm cười. Muội ấy chớp mắt ngạc nhiên vài lần, sau đó mỉm cười trong một giây.
 "Đúng vậy. Tỷ cũng sẽ tham dự buổi này mà," muội ấy nói. "Muội cần phải luôn tỉnh táo..."
 Sau khi đưa ra nhận xét này, Charlotte bước lên phía trước, một tia sáng kiên định trong đôi mắt màu chàm của muội ấy. Tôi rất vui khi thấy rằng bình luận của mình đã làm giảm bớt sự căng thẳng của muội ấy.
-"Ngài Wilfried, Tiểu thư Ro ze mai, và Tiểu thư Charlotte từ Ehrenfest hạng Mười đã đến," một học giả đang đứng bên cửa thông báo.
+"Ngài Wilfried, Tiểu thư Ro se mai, và Tiểu thư Charlotte từ Ehrenfest hạng Mười đã đến," một học giả đang đứng bên cửa thông báo.
 Và với điều đó, chúng tôi được dẫn vào Đại Sảnh Nhỏ.
 Tôi chú ý đến một dáng người nhỏ bé đang ngồi tại chiếc bàn lớn ở cuối phòng, nơi Anastasius đã ngồi vào năm ngoái.
 Đó có thể là em trai của Vương tử Anastasius chăng?
@@ -192,7 +192,7 @@ Một lần nữa, Klassenberg là người đầu tiên. Có vẻ như họ kh�
 bây giờ khi Eglantine đã tốt nghiệp, vì vậy một cậu bé trông có vẻ lớn tuổi hơn đã đứng dậy và thay vào đó đi đến chào vương tử. Sự kiện tiếp tục như dự kiến: những người đại diện của mỗi lãnh địa sẽ đứng lên chào hoàng tộc và sau đó đi xuống dọc bên cạnh để chào hỏi từng lãnh địa có thứ hạng cao hơn họ.
 Dunkelfelger là người tiếp theo đi lên, sau đó là Drewanchel... Chỉ sau khi lãnh địa xếp thứ chín chào vương tử thì mới đến lượt chúng tôi.
 Wilfried và Charlotte đứng dậy trong khi tôi được giúp bước xuống khỏi ghế của mình. Wilfried sau đó nhìn Charlotte và tôi.
-"Ro ze mai. Charlotte. Đi thôi."
+"Ro se mai. Charlotte. Đi thôi."
 Wilfried hộ tống chúng tôi đến bàn của vương tử ở cuối hội trường, di chuyển đủ chậm để tôi có thể theo kịp. Khi chúng tôi đến chỗ Hildebrand, chúng tôi quỳ xuống, bắt chéo tay, và cúi đầu.
 "Vương tử Hildebrand, liệu chúng tôi có thể cầu nguyện cho một lời chúc phúc để tri ân cuộc gặp gỡ tình cờ này, được định đoạt bởi sự phán xét khắc nghiệt của Thần Sự sống Ewigeliebe không?"
 "Các người có thể," một giọng nói trẻ con đặc trưng vang lên.
@@ -206,7 +206,7 @@ Với sự cho phép của vương tử, chúng tôi rót ma lực vào nhẫn c
 Được rồi. Hoàn hảo.
 Tôi tự gật đầu với chính mình, đã thành công trong việc đưa ra một lời chúc phúc nhỏ như của các anh chị em mình.
 Hildebrand sau đó bảo chúng tôi ngẩng đầu lên, lúc này Wilfried tiếp tục lời chào hỏi.
-"Thật vinh dự khi được gặp ngài, Vương tử Hildebrand. Chúng tôi là Wilfried, Ro ze mai, và Charlotte của Ehrenfest, đến đây để học hỏi nhằm trở thành những quý tộc đúng mực phù hợp để phục vụ Yurgenschmidt. Mong cho tương lai sẽ luôn tươi sáng."
+"Thật vinh dự khi được gặp ngài, Vương tử Hildebrand. Chúng tôi là Wilfried, Ro se mai, và Charlotte của Ehrenfest, đến đây để học hỏi nhằm trở thành những quý tộc đúng mực phù hợp để phục vụ Yurgenschmidt. Mong cho tương lai sẽ luôn tươi sáng."
 Hildebrand nhìn từng người chúng tôi theo thứ tự, mặc dù cậu ấy có vẻ quan sát Charlotte với sự chú ý đặc biệt.
 "Ta được kể rằng các ứng cử viên lãnh chúa của Ehrenfest rất xuất sắc—rằng một người đứng đầu lớp và một người khác đạt danh hiệu học sinh danh dự, tất cả trong khi giúp đỡ các bạn cùng lớp của họ trong việc nâng cao điểm số tổng thể của lãnh địa," cậu ấy nói một cách dứt khoát bằng giọng the thé của mình. "Quốc vương Trauerqual đặt nhiều hy vọng vào tất cả các bạn. Hãy tiếp tục những nỗ lực của mình."
 Tôi có thể cảm nhận được rằng cậu ấy đang hoàn toàn tập trung vào việc lặp lại chính xác những lời mà những người lớn đã hướng dẫn cậu ấy nói, và với tư cách là một người đã từng ghi nhớ đủ loại cụm từ cho các buổi lễ, tôi biết cậu ấy hẳn đã phải làm việc chăm chỉ như thế nào để đạt được điểm này. Tôi muốn nói với cậu ấy rằng cậu ấy đang làm rất tốt và hãy tiếp tục phát huy, nhưng nói điều đó với một vương tử thì có vẻ thô lỗ. Thay vào đó, tôi quyết định dùng một biểu hiện của lòng biết ơn.
@@ -228,7 +228,7 @@ Hannelore chớp mắt vài lần. "Chắc hẳn người đã phải đứng ti
 Aub Dunkelfelger dường như đã tuyên bố rằng ngài ấy sẽ đích thân giao cuốn sách để làm tôi ngạc nhiên. Ngài ấy nghe có vẻ giống như một người thích sự tinh nghịch, nhưng để ngài ấy cho chúng tôi mượn một cuốn sách cũng có thể được coi là một báu vật của lãnh địa họ, ngài ấy có lẽ cũng là một người thực sự tốt.
 "Việc được tặng một cuốn sách không bao giờ có thể làm phiền tôi," tôi trả lời. "Tôi đã có khoảng thời gian tuyệt vời với nó, và để cảm ơn, Tiểu thư Hannelore, tôi dự định cho người mượn một cuốn sách từ Ehrenfest. Tôi nghĩ sẽ rất tuyệt nếu chúng ta có thể trao đổi những cuốn sách mới khi trả lại những cuốn chúng ta đã đọc."
 
-"Tôi vô cùng cảm ơn người, Tiểu thư Ro ze mai. Tôi đang rất mong chờ điều đó."
+"Tôi vô cùng cảm ơn người, Tiểu thư Ro se mai. Tôi đang rất mong chờ điều đó."
 Hannelore và tôi trao đổi một nụ cười, tận hưởng cuộc trò chuyện thú vị của chúng tôi, lúc này Lestilaut nhìn tôi với vẻ mặt đầy nghi ngờ.
 "Một ai đó ở Ehrenfest đã xoay sở đọc được cuốn sách đó sao?" cậu ấy hỏi.
 "Đúng vậy. Tôi đã kinh ngạc trước chiều sâu quá khứ của lãnh địa các ngài," tôi trả lời. Thực tế là rất nhiều câu chuyện của họ liên quan đến những kẻ cuồng chiến, những người tiếp tục chiến đấu cho đến khi họ giành chiến thắng ít nhiều đã giải thích tại sao Giáo sư Rauffen lại khăng khăng thách thức chúng tôi tham gia vào các trận tái đấu ditter như vậy—thầy ấy có quá nhiều lịch sử ở phía sau mình.
@@ -240,7 +240,7 @@ Dự định của tôi là dẫn đến một cuộc thảo luận dài hơi, t
 Ồ, đúng rồi... Chúng tôi đang ở giữa cuộc chào hỏi các lãnh địa.
 
 Tôi đã quá hào hứng khi được đoàn tụ với Hannelore và quá háo hức muốn nói chuyện với cô ấy đến mức tôi đã quên mất mình đang ở đâu. Tôi hứa sẽ mời cô ấy đến một bữa tiệc trà sớm và sau đó tiến đến bàn của Drewanchel.
-"Ngài Wilfried, Tiểu thư Ro ze mai, tôi chúc mừng hai người về việc đính hôn," Adolphine nói. "Tôi đã nghi ngờ đôi tai của mình khi Phụ thân trở về từ Hội nghị Lãnh chúa cùng với tin tức này."
+"Ngài Wilfried, Tiểu thư Ro se mai, tôi chúc mừng hai người về việc đính hôn," Adolphine nói. "Tôi đã nghi ngờ đôi tai của mình khi Phụ thân trở về từ Hội nghị Lãnh chúa cùng với tin tức này."
 Adolphine đang phát biểu với tư cách là người đại diện của lãnh địa, nhưng cũng đi cùng với cô ấy là Ortwin, người bạn cùng lớp của tôi và hai ứng cử viên lãnh chúa khác. Mái tóc màu đỏ rượu vang chảy xuống ngực cô ấy thành những gợn sóng uy nghi có độ bóng mượt dễ chịu, gần như thể cô ấy đã sử dụng rinsham. Sự quan sát cẩn thận đối với các học sinh khác của lãnh địa cho thấy tất cả bọn họ cũng đều có mái tóc bóng mượt.
 Khi thấy mắt tôi di chuyển, Adolphine vuốt ve mái tóc của mình và mỉm cười.
 Không, không thể nào... Mình chỉ cho họ một chai thôi mà. Họ hẳn đã phân tích loại rinsham mà tôi đã đưa cho họ tại bữa tiệc trà. Quy trình thực tế để làm ra nó rất đơn giản, vì vậy tôi đã đoán ra rằng phương pháp sản xuất cuối cùng cũng sẽ bị lộ, nhưng chuyện này diễn ra sớm hơn nhiều so với những gì tôi dự kiến. Việc Drewanchel là một lãnh địa của các nhà khoa học điên rồ có thể chỉ khiến nó trở nên đáng sợ hơn một chút so với những gì tôi dự kiến.
@@ -248,14 +248,14 @@ Tôi ngước lên nhìn Adolphine và nuốt nước bọt cái ực. Trong khi
 "Nâng ly cho một năm tốt lành nữa nhé, Wilfried?"
 "Cậu có thể cá về điều đó. Tôi sẽ cho cậu thấy tôi đã chơi gewinnen giỏi hơn bao nhiêu."
 Vì một lý do nào đó, Adolphine đang nở một nụ cười đầy ẩn ý với tôi.
-"Tiểu thư Ro ze mai, những học giả mà chúng tôi gửi đến Hội nghị Lãnh chúa
+"Tiểu thư Ro se mai, những học giả mà chúng tôi gửi đến Hội nghị Lãnh chúa
 
 đã trở về trong một trạng thái phấn khích khá điên cuồng," cô ấy nói. "Có vẻ như Ehrenfest có những ma cụ mà ngay cả bình dân cũng có thể sử dụng—những mảnh giấy vụn tự di chuyển, uốn éo tìm đường đến với bất kỳ mảnh nào lớn hơn. Khá thú vị. Ngay cả các học giả của chúng tôi cũng bị sửng sốt bởi khái niệm này."
 "Ồ, đó không phải là thứ gì đáng để được chú ý nhiều như vậy đâu," tôi trả lời với một tiếng cười khúc khích lảng tránh. Tôi bắt đầu cảm thấy họ sẽ mổ xẻ bất cứ thứ gì họ tìm cách chạm tay vào được.
 "Tôi không quan sát thấy bất kỳ loại giấy nào như vậy trong Học viện Hoàng gia, và nó cũng không được trình bày tại Giải đấu Liên Lãnh địa, phải không?" Adolphine hỏi. "Có thể có một lý do nào đó cho chuyện này chăng?"
 "Có lẽ là do aub của chúng tôi coi nó không xứng đáng để được công khai," tôi trả lời.
 Nó không có mặt tại Giải đấu Liên Lãnh địa vì nó do các bình dân tạo ra, và không ai ở Ehrenfest thực sự coi nó là một ma cụ. Tuy nhiên, tôi không thể nói điều đó!
-"Thật khó một cách đáng ngạc nhiên để nắm bắt được điều gì là bình thường và không bình thường ở lãnh địa của một người," Adolphine nói. "Đây là điều mà tôi đã học được rất rõ kể từ khi đến Học viện Hoàng gia. Tiểu thư Ro ze mai, tôi cầu nguyện rằng chúng ta có thể dành nhiều thời gian bên nhau trong năm nay."
+"Thật khó một cách đáng ngạc nhiên để nắm bắt được điều gì là bình thường và không bình thường ở lãnh địa của một người," Adolphine nói. "Đây là điều mà tôi đã học được rất rõ kể từ khi đến Học viện Hoàng gia. Tiểu thư Ro se mai, tôi cầu nguyện rằng chúng ta có thể dành nhiều thời gian bên nhau trong năm nay."
 Hay nói cách khác, người muốn vắt kiệt thông tin từ tôi chứ gì? Được thôi. Đã đến lúc liên lạc với những người giám hộ của mình. Chuyện đó chẳng mất bao lâu.
 "Tôi xin chia sẻ những lời cầu nguyện của người," tôi nói với một nụ cười, nhưng tôi có thể cảm nhận được khuôn mặt mình đang cứng lại.
 Mắt của Adolphine chuyển sang dừng lại ở Charlotte một khoảnh khắc trước khi nhìn sang Ortwin theo kiểu so sánh.
@@ -296,7 +296,7 @@ Sau khi trao đổi nhiều lời lăng mạ khác với nụ cười trên môi
 Đây là lần đầu tiên Charlotte gặp Rudiger. Đôi mắt muội ấy mở to kinh ngạc, và muội ấy liếc nhìn nhiều lần giữa anh ấy và Wilfried, có lẽ là đang lưu ý xem họ trông giống nhau như thế nào. Tuy nhiên, vì Charlotte cũng có đôi mắt màu chàm giống như Rudiger, muội ấy dường như còn giống anh ấy hơn cả việc anh ấy giống với Wilfried—ít nhất là xét từ góc độ màu sắc. Tôi chắc chắn rằng muội ấy có thể dễ dàng cho mình là em gái của anh ấy.
 Dù vậy tôi thì không. Tôi không có chung huyết thống với họ.
 Rudiger hẳn đã nhận ra cách Charlotte đang nhìn mình vì anh ấy nở một nụ cười. Anh ấy quỳ xuống, bắt chéo tay, và sau đó cúi đầu.
-"Ngài Wilfried, Tiểu thư Ro ze mai. Một lần nữa, Nữ thần Thời gian Dregarnuhr đã đan các sợi chỉ của chúng ta lại với nhau và ban phước cho chúng ta bằng một cuộc gặp gỡ. Và cũng như vậy đối với người, Tiểu thư Charlotte. Liệu tôi có thể cầu nguyện cho một lời chúc phúc để tri ân cuộc gặp gỡ tình cờ này, được định đoạt bởi sự phán xét khắc nghiệt của Thần Sự sống Ewigeliebe không?"
+"Ngài Wilfried, Tiểu thư Ro se mai. Một lần nữa, Nữ thần Thời gian Dregarnuhr đã đan các sợi chỉ của chúng ta lại với nhau và ban phước cho chúng ta bằng một cuộc gặp gỡ. Và cũng như vậy đối với người, Tiểu thư Charlotte. Liệu tôi có thể cầu nguyện cho một lời chúc phúc để tri ân cuộc gặp gỡ tình cờ này, được định đoạt bởi sự phán xét khắc nghiệt của Thần Sự sống Ewigeliebe không?"
 "Ngài có thể."
 Rudiger ban cho Charlotte một lời chúc phúc và trao đổi những lời chào hỏi với muội ấy. Sau đó, một khi chuyện đó đã xong, anh ấy nhìn Wilfried.
 "Huynh nghe nói về việc các ứng cử viên lãnh chúa của lãnh địa muội đang dẫn đầu trong Lễ Cầu Nguyện Mùa Xuân vì lợi ích của
