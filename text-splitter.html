@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Splitter Premium - Phân tách văn bản thông minh</title>
+    <title>BookReader Premium - Đọc & Nghe Novel Thông Minh</title>
+    <meta name="description" content="Đọc và nghe tiểu thuyết Ascendance of a Bookworm bản tiếng Việt với Text-to-Speech tốc độ cao. Hỗ trợ phân tách văn bản, đọc tự động từng đoạn.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;700&family=Be+Vietnam+Pro:wght@400;700&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <script src="/library_data.js"></script>
     <style>
         :root {
             --primary: #6366f1;
             --primary-hover: #4f46e5;
             --accent: #06b6d4;
+            --accent2: #f59e0b;
             --bg: #0f172a;
             --card-bg: rgba(30, 41, 59, 0.7);
             --border: rgba(255, 255, 255, 0.1);
             --text: #f8fafc;
             --text-dim: #94a3b8;
+            --success: #10b981;
         }
 
         * {
@@ -43,19 +47,19 @@
 
         .container {
             width: 100%;
-            max-width: 1000px;
+            max-width: 1100px;
             z-index: 1;
         }
 
         header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             animation: fadeInDown 0.8s ease-out;
         }
 
         h1 {
             font-family: 'Outfit', sans-serif;
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 700;
             background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
             -webkit-background-clip: text;
@@ -65,9 +69,59 @@
 
         p.subtitle {
             color: var(--text-dim);
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
+        /* ========= TAB NAVIGATION ========= */
+        .tab-nav {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 0.5rem;
+            backdrop-filter: blur(12px);
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            border: none;
+            background: transparent;
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .tab-btn:hover {
+            background: rgba(255,255,255,0.05);
+            color: var(--text);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeInUp 0.4s ease-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* ========= GLASS PANEL ========= */
         .glass-panel {
             background: var(--card-bg);
             backdrop-filter: blur(12px);
@@ -76,7 +130,6 @@
             border-radius: 24px;
             padding: 2rem;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease;
             margin-bottom: 2rem;
         }
 
@@ -172,6 +225,17 @@
             background: rgba(255, 255, 255, 0.1);
         }
 
+        .btn-accent {
+            background: linear-gradient(135deg, var(--accent2) 0%, #d97706 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+        }
+
+        .btn-accent:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5);
+        }
+
         .results-container {
             display: grid;
             grid-template-columns: 1fr;
@@ -192,7 +256,7 @@
         .chunk-card.active-playing {
             border-color: var(--primary);
             box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
-            transform: scale(1.02);
+            transform: scale(1.01);
             background: rgba(99, 102, 241, 0.1);
         }
 
@@ -248,63 +312,180 @@
             text-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
         }
 
-        @media (max-width: 640px) {
-            h1 {
-                font-size: 2rem;
-            }
-            .glass-panel {
-                padding: 1.2rem;
-            }
-            .controls {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .limit-input {
-                width: 100%;
-            }
-            button {
-                width: 100%;
-                justify-content: center;
-            }
+        /* ========= LIBRARY TAB ========= */
+        .library-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 1.5rem;
+            min-height: 600px;
+        }
+
+        .library-sidebar {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 1.2rem;
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+
+        .library-sidebar h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .vol-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .vol-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent2);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .chapter-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .chapter-item {
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .chapter-item:hover {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--text);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .chapter-item.active {
+            background: rgba(99, 102, 241, 0.25);
+            color: white;
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+
+        .library-reader {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .reader-toolbar {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .reader-title {
+            flex: 1;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text);
+        }
+
+        .reader-body {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            min-height: 500px;
+            max-height: 70vh;
+            overflow-y: auto;
+            line-height: 2;
+            font-size: 1rem;
+            color: #cbd5e1;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .reader-body.empty-library {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1rem;
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        .reader-body .book-icon {
+            font-size: 4rem;
+            opacity: 0.3;
+        }
+
+        /* Search bar in library */
+        .lib-search-wrap {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .lib-search {
+            width: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0.5rem 0.75rem 0.5rem 2.2rem;
+            color: var(--text);
+            font-size: 0.85rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .lib-search:focus { border-color: var(--primary); }
+
+        .lib-search-icon {
+            position: absolute;
+            left: 0.6rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-dim);
+            pointer-events: none;
+        }
+
+        /* Stats */
+        .stats-badge {
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--primary);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
         }
 
         .copy-success {
-            color: #10b981;
+            color: var(--success);
             font-size: 0.85rem;
             font-weight: 600;
             opacity: 0;
             transition: opacity 0.3s ease;
         }
 
-        .copy-success.show {
-            opacity: 1;
-        }
+        .copy-success.show { opacity: 1; }
 
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.1);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
+        /* ========= EMPTY STATE ========= */
         .empty-state {
             text-align: center;
             padding: 4rem;
@@ -313,12 +494,45 @@
             border-radius: 24px;
         }
 
-        .stats-badge {
-            background: rgba(99, 102, 241, 0.2);
-            color: var(--primary);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
+        /* ========= SCROLLBAR ========= */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.22); }
+
+        /* ========= ANIMATIONS ========= */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========= RESPONSIVE ========= */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .glass-panel { padding: 1.2rem; }
+            .controls { flex-direction: column; align-items: stretch; }
+            .limit-input { width: 100%; }
+            button { width: 100%; justify-content: center; }
+            .library-layout { grid-template-columns: 1fr; }
+            .library-sidebar { max-height: 250px; }
+            .tab-btn { padding: 0.6rem 0.8rem; font-size: 0.85rem; }
+        }
+
+        /* Loading shimmer for library */
+        .shimmer {
+            background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
         }
     </style>
 </head>
@@ -326,90 +540,255 @@
 
     <div class="container">
         <header>
-            <h1>Text Splitter Premium</h1>
-            <p class="subtitle">Phân tách văn bản dài thành các đoạn nhỏ dễ quản lý</p>
+            <h1>📚 BookReader Premium</h1>
+            <p class="subtitle">Đọc & Nghe Novel thông minh · Ascendance of a Bookworm bản dịch tiếng Việt</p>
         </header>
 
-        <div class="glass-panel">
-            <div class="input-group">
-                <label for="mainInput">
-                    <span>Nhập văn bản của bạn</span>
-                    <span id="charCount" class="stats-badge">0 ký tự</span>
-                </label>
-                <textarea id="mainInput" placeholder="Dán văn bản cần xử lý vào đây..."></textarea>
+        <!-- TAB NAVIGATION -->
+        <div class="tab-nav" role="tablist">
+            <button class="tab-btn active" id="tab-splitter-btn" onclick="switchTab('splitter')" role="tab" aria-selected="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+                Phân tách & Đọc
+            </button>
+            <button class="tab-btn" id="tab-library-btn" onclick="switchTab('library')" role="tab" aria-selected="false">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                Thư viện bản dịch
+                <span class="stats-badge" id="libBadge">8 Tập · 62 Phần</span>
+            </button>
+        </div>
+
+        <!-- TAB 1: TEXT SPLITTER -->
+        <div class="tab-content active" id="tab-splitter">
+            <div class="glass-panel">
+                <div class="input-group">
+                    <label for="mainInput">
+                        <span>Nhập văn bản của bạn</span>
+                        <span id="charCount" class="stats-badge">0 ký tự</span>
+                    </label>
+                    <textarea id="mainInput" placeholder="Dán văn bản cần xử lý vào đây, hoặc tải nhanh từ Thư viện bản dịch..."></textarea>
+                </div>
+
+                <div class="controls">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="color: var(--text-dim); font-size: 0.9rem;">Giới hạn:</span>
+                        <input type="number" id="limitInput" class="limit-input" value="5000" min="100">
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="color: var(--text-dim); font-size: 0.9rem;">Ngôn ngữ:</span>
+                        <select id="langSelect" class="select-input">
+                            <option value="vi" selected>Tiếng Việt</option>
+                            <option value="en">Tiếng Anh</option>
+                            <option value="ja">Tiếng Nhật</option>
+                            <option value="ko">Tiếng Hàn</option>
+                            <option value="zh">Tiếng Trung</option>
+                            <option value="fr">Tiếng Pháp</option>
+                        </select>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 1rem; padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid var(--border);">
+                        <span style="color: var(--text-dim); font-size: 0.9rem; white-space: nowrap;">Tốc độ: <span id="speedVal">1.0</span>x</span>
+                        <input type="range" id="speedRate" min="0.5" max="2.5" step="0.1" value="1.0" style="width: 80px; cursor: pointer;">
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="color: var(--text-dim); font-size: 0.9rem;">Font:</span>
+                        <select id="fontSelect" class="select-input" onchange="updateFont()">
+                            <option value="'Inter', sans-serif">Inter</option>
+                            <option value="'Outfit', sans-serif">Outfit</option>
+                            <option value="'Be Vietnam Pro', sans-serif">Be Vietnam Pro</option>
+                            <option value="'Merriweather', serif">Merriweather (Dễ đọc)</option>
+                            <option value="'Lora', serif">Lora (Sách)</option>
+                        </select>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 0.5rem;" title="Tự động phát sau khi bấm Phân tách ngay">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--text-dim); font-size: 0.9rem;">
+                            <input type="checkbox" id="autoPlayCheck" style="width: 16px; height: 16px;">
+                            Tự động phát
+                        </label>
+                    </div>
+                    
+                    <button class="btn-primary" id="splitBtn" onclick="splitText()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 2v8h-8"/><path d="M20 10c0 5.523-4.477 10-10 10S0 15.523 0 10 4.477 0 10 0a9.9 9.9 0 0 1 7.071 2.929L20 10z"/></svg>
+                        Phân tách ngay
+                    </button>
+
+                    <button id="playAllBtn" class="btn-secondary" onclick="playAllChunks()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                        Đọc tất cả
+                    </button>
+
+                    <button id="playFromCursorBtn" class="btn-secondary" onclick="playFromCursor()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7-7-7M5 19l7-7-7-7"/></svg>
+                        Tiếp tục đọc
+                    </button>
+
+                    <button class="btn-secondary" onclick="clearAll()">Xóa tất cả</button>
+                </div>
             </div>
 
-            <div class="controls">
-                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <span style="color: var(--text-dim); font-size: 0.9rem;">Giới hạn:</span>
-                    <input type="number" id="limitInput" class="limit-input" value="5000" min="100">
+            <div id="results" class="results-container">
+                <div class="empty-state">
+                    Kết quả sẽ hiển thị tại đây sau khi bạn phân tách
                 </div>
-
-                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <span style="color: var(--text-dim); font-size: 0.9rem;">Ngôn ngữ:</span>
-                    <select id="langSelect" class="select-input">
-                        <option value="vi" selected>Tiếng Việt</option>
-                        <option value="en">Tiếng Anh</option>
-                        <option value="ja">Tiếng Nhật</option>
-                        <option value="ko">Tiếng Hàn</option>
-                        <option value="zh">Tiếng Trung</option>
-                        <option value="fr">Tiếng Pháp</option>
-                    </select>
-                </div>
-
-
-                <div style="display: flex; align-items: center; gap: 1rem; padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid var(--border);">
-                    <span style="color: var(--text-dim); font-size: 0.9rem; white-space: nowrap;">Tốc độ: <span id="speedVal">1.0</span>x</span>
-                    <input type="range" id="speedRate" min="0.5" max="2.5" step="0.1" value="1.0" style="width: 80px; cursor: pointer;">
-                </div>
-
-                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <span style="color: var(--text-dim); font-size: 0.9rem;">Font:</span>
-                    <select id="fontSelect" class="select-input" onchange="updateFont()">
-                        <option value="'Inter', sans-serif">Inter</option>
-                        <option value="'Outfit', sans-serif">Outfit</option>
-                        <option value="'Be Vietnam Pro', sans-serif">Be Vietnam Pro</option>
-                        <option value="'Merriweather', serif">Merriweather (Dễ đọc)</option>
-                        <option value="'Lora', serif">Lora (Sách)</option>
-                    </select>
-                </div>
-                <div style="display: flex; align-items: center; gap: 0.5rem;" title="Tự động phát sau khi bấm Phân tách ngay">
-                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--text-dim); font-size: 0.9rem;">
-                        <input type="checkbox" id="autoPlayCheck" style="width: 16px; height: 16px;">
-                        Tự động phát
-                    </label>
-                </div>
-                
-                <button class="btn-primary" onclick="splitText()">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 2v8h-8"/><path d="M20 10c0 5.523-4.477 10-10 10S0 15.523 0 10 4.477 0 10 0a9.9 9.9 0 0 1 7.071 2.929L20 10z"/></svg>
-                    Phân tách ngay
-                </button>
-
-                <button id="playAllBtn" class="btn-secondary" onclick="playAllChunks()">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                    Đọc tất cả
-                </button>
-
-                <button id="playFromCursorBtn" class="btn-secondary" onclick="playFromCursor()">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7-7-7M5 19l7-7-7-7"/></svg>
-                    Tiếp tục đọc
-                </button>
-
-
-                <button class="btn-secondary" onclick="clearAll()">
-                    Xóa tất cả
-                </button>
             </div>
         </div>
 
-        <div id="results" class="results-container">
-            <div class="empty-state">
-                Kết quả sẽ hiển thị tại đây sau khi bạn phân tách
+        <!-- TAB 2: LIBRARY -->
+        <div class="tab-content" id="tab-library">
+            <div class="library-layout">
+                <!-- Sidebar -->
+                <aside class="library-sidebar">
+                    <h3>📖 Danh sách chương</h3>
+                    <div class="lib-search-wrap">
+                        <svg class="lib-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        <input type="text" class="lib-search" id="libSearch" placeholder="Tìm chương..." oninput="filterChapters(this.value)">
+                    </div>
+                    <div id="libChapterList">
+                        <!-- Populated by JS -->
+                    </div>
+                </aside>
+
+                <!-- Reader -->
+                <section class="library-reader">
+                    <div class="reader-toolbar">
+                        <div class="reader-title" id="readerTitle">Chọn một chương để bắt đầu đọc</div>
+                        <button class="btn-accent" id="loadToEditorBtn" onclick="loadCurrentToEditor()" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;" disabled>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
+                            Tải vào Editor & Phân tách
+                        </button>
+                        <button class="btn-secondary" id="libCopyBtn" onclick="copyReaderContent()" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;" disabled>
+                            Sao chép tất cả
+                        </button>
+                    </div>
+                    <div class="reader-body empty-library" id="readerBody">
+                        <div class="book-icon">📚</div>
+                        <span>Chọn một chương từ danh sách bên trái để đọc</span>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
 
     <script>
+        // ================================================================
+        // TAB SWITCHING
+        // ================================================================
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+            });
+            document.getElementById('tab-' + tab).classList.add('active');
+            document.getElementById('tab-' + tab + '-btn').classList.add('active');
+            document.getElementById('tab-' + tab + '-btn').setAttribute('aria-selected', 'true');
+        }
+
+        // ================================================================
+        // LIBRARY
+        // ================================================================
+        let currentLibContent = '';
+        let currentLibTitle = '';
+
+        function buildLibrarySidebar() {
+            const container = document.getElementById('libChapterList');
+            if (typeof LIBRARY_DATA === 'undefined' || !LIBRARY_DATA.length) {
+                container.innerHTML = '<p style="color:var(--text-dim);font-size:0.85rem;">Không có dữ liệu thư viện.</p>';
+                return;
+            }
+
+            const badge = document.getElementById('libBadge');
+            if (badge && Array.isArray(LIBRARY_DATA)) {
+                const totalCh = LIBRARY_DATA.reduce((acc, v) => acc + (v.chapters ? v.chapters.length : 0), 0);
+                badge.textContent = `${LIBRARY_DATA.length} Tập · ${totalCh} Phần`;
+            }
+
+            container.innerHTML = '';
+            LIBRARY_DATA.forEach(vol => {
+                const group = document.createElement('div');
+                group.className = 'vol-group';
+                const titleEl = document.createElement('div');
+                titleEl.className = 'vol-title';
+                titleEl.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> ${vol.title}`;
+                group.appendChild(titleEl);
+
+                const list = document.createElement('div');
+                list.className = 'chapter-list';
+                list.setAttribute('data-vol', vol.id);
+
+                vol.chapters.forEach((ch, idx) => {
+                    if (!ch.content || ch.content.trim().length < 5) return;
+                    const item = document.createElement('div');
+                    item.className = 'chapter-item';
+                    item.setAttribute('data-vol', vol.id);
+                    item.setAttribute('data-idx', idx);
+                    item.setAttribute('data-label', ch.label.toLowerCase());
+                    item.textContent = ch.label;
+                    item.onclick = () => loadChapter(vol.id, idx, ch.label, ch.content, item);
+                    list.appendChild(item);
+                });
+
+                group.appendChild(list);
+                container.appendChild(group);
+            });
+        }
+
+        function filterChapters(query) {
+            query = query.toLowerCase();
+            document.querySelectorAll('.chapter-item').forEach(item => {
+                const label = item.getAttribute('data-label') || '';
+                item.style.display = label.includes(query) ? '' : 'none';
+            });
+        }
+
+        function loadChapter(volId, idx, label, content, itemEl) {
+            // Update sidebar active state
+            document.querySelectorAll('.chapter-item').forEach(el => el.classList.remove('active'));
+            if (itemEl) itemEl.classList.add('active');
+
+            currentLibContent = content;
+            currentLibTitle = `${label} — ${LIBRARY_DATA.find(v => v.id === volId)?.title || ''}`;
+
+            document.getElementById('readerTitle').textContent = currentLibTitle;
+            const readerBody = document.getElementById('readerBody');
+            readerBody.className = 'reader-body';
+            readerBody.textContent = content;
+
+            document.getElementById('loadToEditorBtn').disabled = false;
+            document.getElementById('libCopyBtn').disabled = false;
+        }
+
+        function loadCurrentToEditor() {
+            if (!currentLibContent) return;
+            const ta = document.getElementById('mainInput');
+            ta.value = currentLibContent;
+            ta.dispatchEvent(new Event('input'));
+            switchTab('splitter');
+            setTimeout(() => {
+                splitText();
+                document.getElementById('mainInput').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 150);
+        }
+
+        async function copyReaderContent() {
+            if (!currentLibContent) return;
+            try {
+                await navigator.clipboard.writeText(currentLibContent);
+                const btn = document.getElementById('libCopyBtn');
+                const orig = btn.textContent;
+                btn.textContent = '✓ Đã sao chép!';
+                btn.style.color = 'var(--success)';
+                setTimeout(() => { btn.textContent = orig; btn.style.color = ''; }, 2000);
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        // ================================================================
+        // SPLITTER CORE
+        // ================================================================
         const mainInput = document.getElementById('mainInput');
         const charCountDisplay = document.getElementById('charCount');
         const resultsContainer = document.getElementById('results');
@@ -426,34 +805,22 @@
             }
         });
 
-
         function splitText() {
             let text = mainInput.value.trim();
-            // Loại bỏ các khoảng trắng thừa giữa các từ (ví dụ 2 khoảng trắng thành 1)
             text = text.replace(/ +/g, ' ');
-            
-            // Cập nhật lại giá trị cho textarea để index của con trỏ chuột (selectionStart) 
-            // khớp tuyệt đối với độ dài và vị trí của văn bản đã chuẩn hóa.
-            if (mainInput.value !== text) {
-                mainInput.value = text;
-            }
-
+            if (mainInput.value !== text) mainInput.value = text;
             lastSplitText = text;
-
             const limit = parseInt(limitInput.value) || 5000;
 
-            if (!text) {
-                alert('Vui lòng nhập văn bản!');
-                return;
-            }
+            if (!text) { alert('Vui lòng nhập văn bản!'); return; }
 
             resultsContainer.innerHTML = '';
             stopAllAudio();
-            
+
             const chunks = [];
             let currentChunkOffset = 0;
             let remaining = text;
-            
+
             while (remaining.length > 0) {
                 let takeLen = remaining.length;
                 if (takeLen > limit) {
@@ -463,7 +830,7 @@
                         const pos = remaining.lastIndexOf(char, limit);
                         if (pos > limit / 2 && pos > splitAt) {
                             splitAt = pos + char.length;
-                            break; // Ưu tiên break point lớn nhất (xuống dòng)
+                            break;
                         }
                     }
                     if (splitAt === -1) {
@@ -473,7 +840,6 @@
                     if (splitAt <= 0) splitAt = limit;
                     takeLen = splitAt;
                 }
-                
                 const chunkText = remaining.substring(0, takeLen);
                 chunks.push({ text: chunkText, start: currentChunkOffset });
                 currentChunkOffset += chunkText.length;
@@ -510,21 +876,20 @@
                 resultsContainer.appendChild(card);
             });
 
-            // Hiển thị kết quả
             if (chunks.length > 0) {
                 document.getElementById('playFromCursorBtn').style.display = 'flex';
                 document.getElementById('playAllBtn').style.display = 'flex';
             }
-            
-            // Lưu trạng thái vào localStorage
-            saveState();
 
+            saveState();
             if (document.getElementById('autoPlayCheck').checked) {
                 setTimeout(() => playAllChunks(), 500);
             }
         }
 
-        // --- HỆ THỐNG LƯU TRỮ ---
+        // ================================================================
+        // STATE MANAGEMENT
+        // ================================================================
         function saveState() {
             const state = {
                 text: mainInput.value,
@@ -548,9 +913,7 @@
                 document.getElementById('fontSelect').value = state.font || "'Inter', sans-serif";
                 document.getElementById('speedRate').value = state.speed || 1.0;
                 document.getElementById('speedVal').textContent = parseFloat(state.speed || 1.0).toFixed(1);
-                
                 updateFont();
-                
                 if (state.text) {
                     mainInput.dispatchEvent(new Event('input'));
                     splitText();
@@ -558,38 +921,30 @@
             }
         }
 
-        // Lắng nghe thay đổi để lưu
         [mainInput, limitInput, document.getElementById('langSelect'), document.getElementById('autoPlayCheck'), document.getElementById('fontSelect'), document.getElementById('speedRate')].forEach(el => {
             el.addEventListener('change', saveState);
         });
         mainInput.addEventListener('input', () => {
             charCountDisplay.textContent = `${mainInput.value.length.toLocaleString()} ký tự`;
-            // Không lưu liên tục mỗi phím nhấn để tránh lag, chỉ lưu khi dừng gõ hoặc split
         });
 
-        window.addEventListener('DOMContentLoaded', loadState);
-
+        // ================================================================
+        // AUDIO ENGINE
+        // ================================================================
         let currentAudio = null;
         let activeChunkIndex = -1;
         let isGlobalPlaying = false;
         let lastSplitText = "";
-
         const audioCache = new Map();
 
         function getAudioUrl(text, lang) {
-            const isLocalServer = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-            if (isLocalServer) {
-                return `/tts?q=${encodeURIComponent(text)}&tl=${lang}`;
-            } else {
-                return `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(text)}&tl=${lang}&client=gtx`;
-            }
+            return `/tts?q=${encodeURIComponent(text)}&tl=${lang}`;
         }
 
         function preloadAudio(text, lang) {
             if (!text.trim()) return null;
             const cacheKey = lang + '_' + text;
             if (audioCache.has(cacheKey)) return audioCache.get(cacheKey);
-            
             const audio = new Audio(getAudioUrl(text, lang));
             audio.preload = 'auto';
             audioCache.set(cacheKey, audio);
@@ -598,24 +953,14 @@
         }
 
         function stopAllAudio() {
-            if (currentAudio) {
-                currentAudio.pause();
-                currentAudio = null;
-            }
-            if (window.speechSynthesis) {
-                window.speechSynthesis.cancel();
-            }
+            if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+            if (window.speechSynthesis) window.speechSynthesis.cancel();
             isGlobalPlaying = false;
             activeChunkIndex = -1;
-            
-            // Reset UI cho tất cả các nút
             document.querySelectorAll('.tts-btn').forEach(btn => {
                 btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Nghe đọc`;
             });
-            document.querySelectorAll('.chunk-card').forEach(card => {
-                card.classList.remove('active-playing');
-            });
-
+            document.querySelectorAll('.chunk-card').forEach(card => card.classList.remove('active-playing'));
             const playAllBtn = document.getElementById('playAllBtn');
             const playCursorBtn = document.getElementById('playFromCursorBtn');
             if (playAllBtn) updatePlayButtonUI(playAllBtn, false, "Đọc tất cả");
@@ -623,93 +968,59 @@
         }
 
         async function playAllChunks() {
-            if (isGlobalPlaying) {
-                stopAllAudio();
-                return;
-            }
-
+            if (isGlobalPlaying) { stopAllAudio(); return; }
             const sentences = document.querySelectorAll('.sentence');
             if (sentences.length === 0 || mainInput.value !== lastSplitText) {
                 splitText();
                 setTimeout(() => playAllChunks(), 300);
                 return;
             }
-
             isGlobalPlaying = true;
             updatePlayButtonUI(document.getElementById('playAllBtn'), true);
-
             const cards = document.querySelectorAll('.chunk-card');
             for (let i = 0; i < cards.length; i++) {
                 if (!isGlobalPlaying) break;
                 await playSingleChunk(i);
             }
-
             if (isGlobalPlaying) stopAllAudio();
         }
 
         async function playFromCursor() {
-            if (isGlobalPlaying) {
-                stopAllAudio();
-                return;
-            }
-
+            if (isGlobalPlaying) { stopAllAudio(); return; }
             const text = mainInput.value.trim();
-            if (!text) {
-                alert('Vui lòng nhập văn bản!');
-                return;
-            }
-
-            // Nếu chưa có kết quả hoặc văn bản mới khác văn bản cũ, phân tách lại
+            if (!text) { alert('Vui lòng nhập văn bản!'); return; }
             const sentences = document.querySelectorAll('.sentence');
             if (sentences.length === 0 || mainInput.value !== lastSplitText) {
                 splitText();
-                // Đợi render xong
                 setTimeout(() => playFromCursor(), 300);
                 return;
             }
-
             const cursorPos = mainInput.selectionStart;
-            let targetChunkIdx = 0;
-            let targetSentenceIdx = 0;
-            let found = false;
-
+            let targetChunkIdx = 0, targetSentenceIdx = 0, found = false;
             const allSentences = document.querySelectorAll('.sentence');
             for (let s of allSentences) {
                 const start = parseInt(s.getAttribute('data-start'));
                 const end = parseInt(s.getAttribute('data-end'));
                 const idParts = s.id.split('-');
-                
                 if (cursorPos >= start && cursorPos < end) {
-                    targetChunkIdx = parseInt(idParts[1]);
-                    targetSentenceIdx = parseInt(idParts[2]);
-                    found = true;
-                    break;
+                    targetChunkIdx = parseInt(idParts[1]); targetSentenceIdx = parseInt(idParts[2]); found = true; break;
                 }
-                
                 if (cursorPos < start && !found) {
-                    targetChunkIdx = parseInt(idParts[1]);
-                    targetSentenceIdx = parseInt(idParts[2]);
-                    found = true;
-                    break;
+                    targetChunkIdx = parseInt(idParts[1]); targetSentenceIdx = parseInt(idParts[2]); found = true; break;
                 }
             }
-            
             if (!found && allSentences.length > 0) {
                 const lastS = allSentences[allSentences.length - 1];
                 const idParts = lastS.id.split('-');
-                targetChunkIdx = parseInt(idParts[1]);
-                targetSentenceIdx = parseInt(idParts[2]);
+                targetChunkIdx = parseInt(idParts[1]); targetSentenceIdx = parseInt(idParts[2]);
             }
-
             isGlobalPlaying = true;
             updatePlayButtonUI(document.getElementById('playFromCursorBtn'), true);
-
             const cards = document.querySelectorAll('.chunk-card');
             for (let i = targetChunkIdx; i < cards.length; i++) {
                 if (!isGlobalPlaying) break;
                 await playSingleChunk(i, i === targetChunkIdx ? targetSentenceIdx : 0);
             }
-
             if (isGlobalPlaying) stopAllAudio();
         }
 
@@ -720,7 +1031,7 @@
                 btn.classList.remove('btn-primary', 'btn-secondary');
                 btn.classList.add('btn-secondary');
             } else {
-                const icon = btn.id === 'playAllBtn' 
+                const icon = btn.id === 'playAllBtn'
                     ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>`
                     : `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7-7-7M5 19l7-7-7-7"/></svg>`;
                 btn.innerHTML = `${icon} ${originalText || (btn.id === 'playAllBtn' ? 'Đọc tất cả' : 'Tiếp tục đọc')}`;
@@ -745,74 +1056,43 @@
             const card = document.getElementById(`card-${index}`);
             const btn = document.getElementById(`tts-btn-${index}`);
             if (!card || !btn) return;
-
-            // Nếu đang chơi global và nhảy sang đoạn khác, không cần reset isGlobalPlaying
             activeChunkIndex = index;
             card.classList.add('active-playing');
-            
-            // Nếu click vào câu, có thể không cần scroll cả card nếu card đã ở trong tầm mắt
-            if (startFromSentence === 0) {
-                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-            
+            if (startFromSentence === 0) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
             btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg> Dừng`;
-
             const lang = document.getElementById('langSelect').value;
             const contentDiv = document.getElementById(`chunk-${index}`);
-            
-            // Lấy danh sách các câu đã được render sẵn
             const sentenceSpans = contentDiv.querySelectorAll('.sentence');
             const chunks = Array.from(sentenceSpans).map(s => s.getAttribute('data-raw-text'));
-
             if (startFromSentence < chunks.length) preloadAudio(chunks[startFromSentence], lang);
-
             for (let i = startFromSentence; i < chunks.length; i++) {
                 if (!isGlobalPlaying || activeChunkIndex !== index) break;
-                
-                // Highlight câu hiện tại
                 document.querySelectorAll(`#chunk-${index} .sentence`).forEach(s => s.classList.remove('active-sentence'));
                 const currentSpan = document.getElementById(`s-${index}-${i}`);
                 if (currentSpan) {
                     currentSpan.classList.add('active-sentence');
-                    // Tính toán vị trí để không cuộn quá gắt
                     const rect = currentSpan.getBoundingClientRect();
                     if (rect.top < 100 || rect.bottom > window.innerHeight - 100) {
                         currentSpan.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }
                 }
-
                 const playbackRate = parseFloat(document.getElementById('speedRate').value);
                 const textToPlay = chunks[i];
-                
-                // Bắt đầu preload cho 2 câu tiếp theo
                 if (i + 1 < chunks.length) preloadAudio(chunks[i + 1], lang);
                 if (i + 2 < chunks.length) preloadAudio(chunks[i + 2], lang);
-
                 await new Promise((resolve) => {
                     const cacheKey = lang + '_' + textToPlay;
                     currentAudio = audioCache.get(cacheKey) || preloadAudio(textToPlay, lang);
-                    
-                    // Khởi tạo lại trạng thái để đọc
                     currentAudio.currentTime = 0;
                     currentAudio.playbackRate = playbackRate;
-                    
-                    // Phát xong là kết thúc Promise ngay lập tức để chuyển câu không bị khựng
                     currentAudio.onended = () => resolve();
-                    currentAudio.onerror = (e) => {
-                        console.error("Audio playback error:", e);
-                        resolve();
-                    };
-                    
+                    currentAudio.onerror = (e) => { console.error("Audio error:", e); resolve(); };
                     const playPromise = currentAudio.play();
                     if (playPromise !== undefined) {
-                        playPromise.catch(error => {
-                            console.error("Playback failed:", error);
-                            resolve();
-                        });
+                        playPromise.catch(error => { console.error("Playback failed:", error); resolve(); });
                     }
                 });
             }
-
             if (activeChunkIndex === index) {
                 card.classList.remove('active-playing');
                 btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Nghe đọc`;
@@ -823,13 +1103,11 @@
             stopAllAudio();
             isGlobalPlaying = true;
             updatePlayButtonUI(document.getElementById('playFromCursorBtn'), true);
-            
             const cards = document.querySelectorAll('.chunk-card');
             for (let i = chunkIdx; i < cards.length; i++) {
                 if (!isGlobalPlaying) break;
                 await playSingleChunk(i, i === chunkIdx ? sentenceIdx : 0);
             }
-            
             if (isGlobalPlaying) stopAllAudio();
         }
 
@@ -840,69 +1118,15 @@
                 const successMsg = document.getElementById(`success-${index}`);
                 successMsg.classList.add('show');
                 setTimeout(() => successMsg.classList.remove('show'), 2000);
-            } catch (err) {
-                console.error('Lỗi khi sao chép: ', err);
-            }
-        }
-
-        function speakSystem(text, lang, rate, onEnd) {
-            if (!window.speechSynthesis) {
-                onEnd();
-                return;
-            }
-            // Hủy các câu đang đọc dở của hệ thống để tránh bị kẹt
-            window.speechSynthesis.cancel();
-
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = lang;
-            utterance.rate = rate;
-            utterance.onend = onEnd;
-            utterance.onerror = (e) => {
-                console.error("System Speech Error:", e);
-                onEnd();
-            };
-            
-            // Tìm giọng đọc phù hợp với ngôn ngữ
-            const voices = window.speechSynthesis.getVoices();
-            const voice = voices.find(v => v.lang.startsWith(lang)) || voices.find(v => v.lang.includes(lang.toUpperCase()));
-            if (voice) utterance.voice = voice;
-
-            window.speechSynthesis.speak(utterance);
-        }
-
-        function testAudio() {
-            const lang = document.getElementById('langSelect').value;
-            const engine = document.getElementById('ttsEngine').value;
-            const testText = "Xin chào, đây là âm thanh kiểm tra.";
-            
-            if (engine === 'google') {
-                const url = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(testText)}&tl=${lang}&client=tw-ob`;
-                const audio = new Audio(url);
-                audio.play().then(() => {
-                    console.log("Google TTS test success");
-                }).catch((err) => {
-                    console.warn("Google TTS test failed, trying System:", err);
-                    alert("Google TTS bị chặn hoặc có lỗi. Đang thử giọng Hệ thống...");
-                    speakSystem(testText, lang, 1.0, () => {});
-                });
-            } else {
-                speakSystem(testText, lang, 1.0, () => {});
-            }
+            } catch (err) { console.error('Copy error:', err); }
         }
 
         function clearAll() {
             mainInput.value = '';
             charCountDisplay.textContent = '0 ký tự';
-            resultsContainer.innerHTML = `
-                <div class="empty-state">
-                    Kết quả sẽ hiển thị tại đây sau khi bạn phân tách
-                </div>
-            `;
-            if (currentAudio) {
-                currentAudio.pause();
-                currentAudio = null;
-            }
-            isPlaying = false;
+            resultsContainer.innerHTML = `<div class="empty-state">Kết quả sẽ hiển thị tại đây sau khi bạn phân tách</div>`;
+            if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+            isGlobalPlaying = false;
         }
 
         function escapeHtml(text) {
@@ -915,74 +1139,58 @@
         }
 
         function cleanTextForTTS(text) {
-            // Loại bỏ các ký tự đặc biệt theo yêu cầu người dùng: " ( ) < > * và các biến thể ngoặc kép
-            // Thay thế bằng khoảng trắng để tránh dính chữ
-            return text.replace(/["“”''‘’«»()<>*]/g, ' ').replace(/\s+/g, ' ').trim();
+            return text.replace(/["""''''«»()<>*]/g, ' ').replace(/\s+/g, ' ').trim();
         }
 
-        // --- FONT SETTINGS ---
         function updateFont() {
             const font = document.getElementById('fontSelect').value;
-            document.querySelectorAll('.chunk-content').forEach(el => {
-                el.style.fontFamily = font;
-            });
+            document.querySelectorAll('.chunk-content').forEach(el => el.style.fontFamily = font);
             saveState();
         }
 
-        // --- FORMATTING ---
         function formatTextDisplay(text, chunkIdx, chunkOffset) {
             const sentences = [];
             let remaining = text;
             let currentStart = chunkOffset;
-            
             while (remaining.length > 0) {
                 let takeLen = remaining.length;
-                
                 if (takeLen > 180) {
                     let splitAt = -1;
-                    const breakPoints = ['.\n', '!\n', '?\n', '”\n', '"\n', '... ', '. ', '! ', '? ', '\n', ', ', '; ', ': ', ' - '];
-                    
+                    const breakPoints = ['.\n', '!\n', '?\n', '"\n', '"\n', '... ', '. ', '! ', '? ', '\n', ', ', '; ', ': ', ' - '];
                     for (const char of breakPoints) {
                         const pos = remaining.lastIndexOf(char, 180);
-                        if (pos > 50 && pos > splitAt) {
-                            splitAt = pos + char.length; 
-                        }
+                        if (pos > 50 && pos > splitAt) splitAt = pos + char.length;
                     }
-                    
                     if (splitAt === -1) {
                         splitAt = remaining.lastIndexOf(' ', 180);
                         if (splitAt !== -1) splitAt += 1;
                     }
-                    
                     if (splitAt <= 0) splitAt = 180;
                     takeLen = splitAt;
                 }
-                
                 const chunkStr = remaining.substring(0, takeLen);
-                
                 if (chunkStr.trim()) {
-                    sentences.push({
-                        text: chunkStr,
-                        start: currentStart,
-                        end: currentStart + chunkStr.length
-                    });
-                } else if (chunkStr.length > 0) {
-                    if (sentences.length > 0) {
-                        sentences[sentences.length - 1].text += chunkStr;
-                        sentences[sentences.length - 1].end += chunkStr.length;
-                    }
+                    sentences.push({ text: chunkStr, start: currentStart, end: currentStart + chunkStr.length });
+                } else if (chunkStr.length > 0 && sentences.length > 0) {
+                    sentences[sentences.length - 1].text += chunkStr;
+                    sentences[sentences.length - 1].end += chunkStr.length;
                 }
-                
                 currentStart += chunkStr.length;
                 remaining = remaining.substring(takeLen);
             }
-
             return sentences.map((sObj, i) => {
                 const cleanedText = cleanTextForTTS(sObj.text);
                 return `<span id="s-${chunkIdx}-${i}" class="sentence" data-raw-text="${escapeHtml(cleanedText)}" data-start="${sObj.start}" data-end="${sObj.end}" onclick="playFromSentence(${chunkIdx}, ${i})">${escapeHtml(sObj.text)}</span>`;
             }).join('');
         }
 
+        // ================================================================
+        // INIT
+        // ================================================================
+        window.addEventListener('DOMContentLoaded', () => {
+            loadState();
+            buildLibrarySidebar();
+        });
     </script>
 </body>
 </html>

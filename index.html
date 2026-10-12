@@ -553,7 +553,7 @@
             <button class="tab-btn" id="tab-library-btn" onclick="switchTab('library')" role="tab" aria-selected="false">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
                 Thư viện bản dịch
-                <span class="stats-badge">P4V5 &amp; P4V6</span>
+                <span class="stats-badge" id="libBadge">8 Tập · 62 Phần</span>
             </button>
         </div>
 
@@ -697,6 +697,12 @@
             if (typeof LIBRARY_DATA === 'undefined' || !LIBRARY_DATA.length) {
                 container.innerHTML = '<p style="color:var(--text-dim);font-size:0.85rem;">Không có dữ liệu thư viện.</p>';
                 return;
+            }
+
+            const badge = document.getElementById('libBadge');
+            if (badge && Array.isArray(LIBRARY_DATA)) {
+                const totalCh = LIBRARY_DATA.reduce((acc, v) => acc + (v.chapters ? v.chapters.length : 0), 0);
+                badge.textContent = `${LIBRARY_DATA.length} Tập · ${totalCh} Phần`;
             }
 
             container.innerHTML = '';

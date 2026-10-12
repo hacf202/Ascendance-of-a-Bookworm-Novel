@@ -67,7 +67,7 @@ http.createServer((req, res) => {
     }
 
     let filePath = '.' + rawPath;
-    if (filePath === './' || filePath === '.') filePath = './text-splitter.html';
+    if (filePath === './' || filePath === '.') filePath = './index.html';
 
     const extname = String(path.extname(filePath)).toLowerCase();
     const contentType = MIME_TYPES[extname] || 'application/octet-stream';
