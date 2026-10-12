@@ -44,6 +44,11 @@ VOLUMES_CONFIG = [
         "title": "Phần 5 - Tập 2 (Part 5 Vol 2)",
         "dir": r"d:\novel\Ascendance of a Bookworm Part 5 volume 2",
     },
+    {
+        "id": "p5vol3",
+        "title": "Phần 5 - Tập 3 (Part 5 Vol 3)",
+        "dir": r"d:\novel\Ascendance of a Bookworm Part 5 volume 3",
+    },
 ]
 
 def clean_text(text: str) -> str:
