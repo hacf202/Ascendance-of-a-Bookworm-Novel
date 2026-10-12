@@ -534,6 +534,56 @@
             0% { background-position: -200% 0; }
             100% { background-position: 200% 0; }
         }
+
+        /* ========= BACK TO TOP BUTTON ========= */
+        .back-to-top {
+            position: fixed;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.9);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(8px);
+            padding: 0;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-4px) scale(1.08);
+            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.6);
+            background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+        }
+
+        .back-to-top:active {
+            transform: translateY(0) scale(0.95);
+        }
+
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 44px;
+                height: 44px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -670,6 +720,13 @@
             </div>
         </div>
     </div>
+
+    <!-- NÚT QUAY LẠI ĐẦU TRANG -->
+    <button id="backToTopBtn" class="back-to-top" onclick="scrollToTop()" title="Quay lại đầu trang" aria-label="Quay lại đầu trang">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
 
     <script>
         // ================================================================
@@ -1182,6 +1239,45 @@
                 const cleanedText = cleanTextForTTS(sObj.text);
                 return `<span id="s-${chunkIdx}-${i}" class="sentence" data-raw-text="${escapeHtml(cleanedText)}" data-start="${sObj.start}" data-end="${sObj.end}" onclick="playFromSentence(${chunkIdx}, ${i})">${escapeHtml(sObj.text)}</span>`;
             }).join('');
+        }
+
+        // ================================================================
+        // BACK TO TOP FUNCTIONALITY
+        // ================================================================
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        function toggleBackToTopBtn() {
+            const readerBody = document.getElementById('readerBody');
+            const readerScroll = readerBody ? readerBody.scrollTop : 0;
+            const windowScroll = window.scrollY || document.documentElement.scrollTop;
+
+            if (windowScroll > 300 || readerScroll > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        }
+
+        window.addEventListener('scroll', toggleBackToTopBtn, { passive: true });
+
+        const readerBodyEl = document.getElementById('readerBody');
+        if (readerBodyEl) {
+            readerBodyEl.addEventListener('scroll', toggleBackToTopBtn, { passive: true });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
+            const readerBody = document.getElementById('readerBody');
+            if (readerBody) {
+                readerBody.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
         }
 
         // ================================================================
