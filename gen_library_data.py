@@ -49,6 +49,31 @@ VOLUMES_CONFIG = [
         "title": "Phần 5 - Tập 3 (Part 5 Vol 3)",
         "dir": r"d:\novel\Ascendance of a Bookworm Part 5 volume 3",
     },
+    {
+        "id": "p5vol4",
+        "title": "Phần 5 - Tập 4 (Part 5 Vol 4)",
+        "dir": r"d:\novel\Ascendance of a Bookworm Part 5 volume 4",
+    },
+    {
+        "id": "p5vol5",
+        "title": "Phần 5 - Tập 5 (Part 5 Vol 5)",
+        "dir": r"d:\novel\Ascendance of a Bookworm Part 5 volume 5",
+    },
+    {
+        "id": "p5vol6",
+        "title": "Phần 5 - Tập 6 (Part 5 Vol 6)",
+        "dir": r"d:\novel\Ascendance of a Bookworm Part 5 volume 6",
+    },
+    {
+        "id": "p5vol7",
+        "title": "Phần 5 - Tập 7 (Part 5 Vol 7)",
+        "dir": r"d:\novel\Ascendance of a Bookworm Part 5 volume 7",
+    },
+    {
+        "id": "p5vol8",
+        "title": "Phần 5 - Tập 8 (Part 5 Vol 8)",
+        "dir": r"d:\novel\Ascendance of a Bookworm Part 5 volume 8",
+    },
 ]
 
 def clean_text(text: str) -> str:
